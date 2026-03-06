@@ -25,7 +25,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
+            scroll-snap-type: y proximity;
             overflow-y: scroll;
             overflow-x: hidden;
         }
@@ -40,17 +40,15 @@
         /* ─── SLIDE SYSTEM ─── */
         .slide {
             min-height: 100vh;
-            height: 100vh;
-            max-height: 100vh;
             width: 100%;
             scroll-snap-align: start;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 40px 50px;
+            padding: 28px 32px 36px;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .slide-inner {
@@ -108,7 +106,7 @@
             width: 50px;
             height: 3px;
             background: var(--red);
-            margin: 24px 0;
+            margin: 16px 0;
         }
 
         /* ─── AMBIENT EFFECTS ─── */
@@ -471,9 +469,10 @@
         /* ─── PRICING TIERS ─── */
         .tier-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             margin-top: 40px;
+            max-width: 800px;
         }
 
         .tier {
@@ -492,7 +491,7 @@
         }
 
         .tier.featured::before {
-            content: 'MOST POPULAR';
+            content: 'RECOMMENDED';
             position: absolute;
             top: -12px;
             left: 50%;
@@ -1543,9 +1542,10 @@
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 900px) {
-            .slide { padding: 40px 24px; }
+            .slide { padding: 24px 20px 28px; }
             .slide-hero { padding-left: 24px; }
-            .grid-2, .pain-grid, .tier-grid, .grid-3 { grid-template-columns: 1fr; }
+            .grid-2, .pain-grid, .grid-3 { grid-template-columns: 1fr; }
+            .tier-grid { grid-template-columns: 1fr 1fr; }
             .grid-4 { grid-template-columns: 1fr 1fr; }
             .arch-flow { flex-direction: column; }
             .arch-arrow { transform: rotate(90deg); }
@@ -1572,9 +1572,30 @@
         }
 
         /* ─── DENSE SLIDE SCALING ─── */
-        .slide-dense .slide-inner {
-            transform: scale(0.88);
-            transform-origin: top center;
+        .slide-dense {
+            justify-content: flex-start;
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+        .slide-dense .module-grid {
+            gap: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        }
+        .slide-dense .module-card {
+            padding: 12px 14px;
+        }
+        .slide-dense .module-card h4 {
+            font-size: 0.8rem;
+            margin: 2px 0 3px;
+        }
+        .slide-dense .module-card p {
+            font-size: 0.68rem;
+            line-height: 1.4;
+        }
+        .slide-dense .module-section-label {
+            margin-top: 16px;
+            margin-bottom: 6px;
+            padding-bottom: 5px;
         }
 
         /* ─── ANIMATIONS ─── */
@@ -2774,7 +2795,7 @@
                                     <div class="app-stat-label">Active Campaigns</div>
                                 </div>
                                 <div class="app-stat-card">
-                                    <div class="app-stat-val" style="font-size:1.3rem;">$46.9K</div>
+                                    <div class="app-stat-val" style="font-size:1.3rem;">$27.5K</div>
                                     <div class="app-stat-label">MRR</div>
                                 </div>
                                 <div class="app-stat-card">
@@ -2955,78 +2976,70 @@
     <div class="slide-inner">
         <div class="label fade-up">Pricing Model</div>
         <h2 class="section-title fade-up stagger-1">Client tiers.<br><span style="color:var(--red)">Recurring revenue.</span></h2>
-        <p class="section-subtitle fade-up stagger-2">Bundled SaaS pricing that covers CRM, outreach, lead database, and inbox infrastructure in one subscription.</p>
+        <p class="section-subtitle fade-up stagger-2">CRM + outreach bundled at $499–$599/mo with outreach included for the first 6–12 months. Outreach available standalone at $299/mo after promo or without CRM.</p>
 
         <div class="tier-grid fade-up stagger-3">
-            <div class="tier">
-                <div class="tier-name">Starter</div>
-                <div class="tier-price"><span class="dollar">$</span>497</div>
+            <div class="tier featured">
+                <div class="tier-name">CRM + Outreach Bundle</div>
+                <div class="tier-price"><span class="dollar">$</span>499–599</div>
                 <div class="tier-period">per month</div>
                 <ul>
                     <li>GoHighLevel CRM</li>
-                    <li>Outreach engine access</li>
+                    <li>Outreach engine included</li>
                     <li>STFLeadlist — 2,000 leads/mo</li>
-                    <li>10 managed inboxes</li>
-                    <li>Automated warmup</li>
+                    <li>Managed inboxes + warmup</li>
                     <li>Reply → CRM sync</li>
-                </ul>
-            </div>
-            <div class="tier featured">
-                <div class="tier-name">Growth</div>
-                <div class="tier-price"><span class="dollar">$</span>997</div>
-                <div class="tier-period">per month</div>
-                <ul>
-                    <li>Everything in Starter</li>
-                    <li>Expanded inbox volume</li>
-                    <li>Higher lead allocation</li>
-                    <li>Advanced analytics</li>
-                    <li>Priority deliverability</li>
-                    <li>Dedicated support</li>
+                    <li>Outreach included first 6–12 months</li>
                 </ul>
             </div>
             <div class="tier">
-                <div class="tier-name">Agency</div>
-                <div class="tier-price"><span class="dollar">$</span>1,997<span style="font-size:1rem;color:var(--white-muted);">+</span></div>
+                <div class="tier-name">Outreach Add-On / Standalone</div>
+                <div class="tier-price"><span class="dollar">$</span>299</div>
                 <div class="tier-period">per month</div>
                 <ul>
-                    <li>Everything in Growth</li>
-                    <li>Maximum volume</li>
-                    <li>Dedicated deliverability mgmt</li>
-                    <li>White-glove onboarding</li>
-                    <li>Custom inbox allocation</li>
-                    <li>SLA guarantee</li>
+                    <li>Outreach engine access</li>
+                    <li>STFLeadlist — 2,000 leads/mo</li>
+                    <li>Managed inboxes + warmup</li>
+                    <li>Campaign sequences + rotation</li>
+                    <li>Reply detection &amp; routing</li>
+                    <li>Post-promo add-on or standalone</li>
                 </ul>
             </div>
         </div>
 
         <div style="margin-top:50px;">
-            <div class="label fade-up">Monthly Operating Costs</div>
+            <div class="label fade-up">Per-Client SaaS Costs</div>
             <div class="ops-grid fade-up">
                 <div class="ops-card">
-                    <h4>Smartlead / Client</h4>
-                    <div class="ops-cost">$60 – $120</div>
-                    <p>Per-client white-label</p>
-                    <div class="ops-value"><span><span class="eco-tag">Ecosystem Value</span> Powers campaign orchestration, sequence management, inbox rotation, and reply detection — the entire outreach engine for each client.</span></div>
-                </div>
-                <div class="ops-card">
-                    <h4>Zapmail Infra / Client</h4>
-                    <div class="ops-cost">$50 – $120</div>
-                    <p>Domains + inboxes</p>
+                    <h4>Zapmail</h4>
+                    <div class="ops-cost">$39/mo</div>
+                    <p>Inbox infrastructure</p>
                     <div class="ops-value"><span><span class="eco-tag">Ecosystem Value</span> Auto-provisioned domains & inboxes with built-in warmup. Protects sender reputation and ensures deliverability from day one.</span></div>
                 </div>
                 <div class="ops-card">
-                    <h4>Hosting & Servers</h4>
-                    <div class="ops-cost">$500 – $1,500</div>
-                    <p>Platform infrastructure</p>
-                    <div class="ops-value"><span><span class="eco-tag">Ecosystem Value</span> Runs the API orchestration layer, job queues, webhook processing, and multi-tenant isolation that connects all four integrations.</span></div>
+                    <h4>Smartlead + Sending</h4>
+                    <div class="ops-cost">$29/mo+</div>
+                    <p>Outreach engine + sending fees</p>
+                    <div class="ops-value"><span><span class="eco-tag">Ecosystem Value</span> Powers campaign orchestration, sequence management, inbox rotation, and reply detection. Sending fees scale with volume.</span></div>
                 </div>
                 <div class="ops-card">
-                    <h4>Monitoring + Logging</h4>
-                    <div class="ops-cost">$100 – $300</div>
-                    <p>Uptime & observability</p>
-                    <div class="ops-value"><span><span class="eco-tag">Ecosystem Value</span> Real-time health checks across all systems. Catches inbox degradation, API failures, and provisioning errors before they impact clients.</span></div>
+                    <h4>Setup, Support & Scaling</h4>
+                    <div class="ops-cost">~$25/mo</div>
+                    <p>Per-person overhead</p>
+                    <div class="ops-value"><span><span class="eco-tag">Ecosystem Value</span> Onboarding support, upgraded sending capacity as users grow, and ongoing platform assistance per client.</span></div>
+                </div>
+                <div class="ops-card">
+                    <h4>GHL Agency Subaccount</h4>
+                    <div class="ops-cost">$297/mo</div>
+                    <p>Platform-wide CRM cost</p>
+                    <div class="ops-value"><span><span class="eco-tag">Ecosystem Value</span> GoHighLevel agency subscription powering CRM, client subaccounts, automations, and the unified login hub.</span></div>
                 </div>
             </div>
+            <div class="fade-up" style="margin-top:16px;background:var(--black-card);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+                <div style="font-size:0.85rem;color:var(--white-dim);">Total outreach cost per client</div>
+                <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--red-glow);">~$100/mo</div>
+            </div>
+            <div class="fade-up" style="margin-top:8px;font-size:0.75rem;color:var(--white-muted);line-height:1.5;">Additional costs: GHL support, platform maintenance & updates, monthly database contact adds — TBD as client base scales.</div>
         </div>
     </div>
 </section>
@@ -3048,7 +3061,7 @@
                 <div class="card" style="border-left:3px solid var(--red);">
                     <div class="card-num" style="color:rgba(196,30,58,0.12);">01</div>
                     <h3>Tool Consolidation</h3>
-                    <p style="margin-bottom:14px;">Separate CRM, outreach, inbox, lead database, and warmup tools cost $600–$900/mo. STF bundles everything starting at $497/mo.</p>
+                    <p style="margin-bottom:14px;">Separate CRM, outreach, inbox, lead database, and warmup tools cost $600–$900/mo. STF bundles everything starting at $499/mo.</p>
                     <div style="display:flex;align-items:baseline;gap:8px;">
                         <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--red-glow);">$1,200–$4,800</span>
                         <span style="font-size:0.75rem;color:var(--white-muted);letter-spacing:2px;text-transform:uppercase;">saved / year</span>
@@ -3108,7 +3121,7 @@
             <div class="fade-up" style="margin-top:30px;background:var(--black-card);border:1px solid rgba(196,30,58,0.15);border-radius:16px;padding:32px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
                 <div>
                     <div style="font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:6px;">Bottom Line</div>
-                    <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;">A $497–$997/mo subscription that generates <span style="color:var(--red-glow);">$120K–$600K+</span> in annual client revenue.</div>
+                    <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;">A $299–$599/mo subscription that generates <span style="color:var(--red-glow);">$120K–$600K+</span> in annual client revenue.</div>
                 </div>
                 <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--red-glow);white-space:nowrap;">20–100x ROI</div>
             </div>
@@ -3124,24 +3137,24 @@
     <div class="slide-inner">
         <div class="label fade-up">Revenue Potential</div>
         <h2 class="section-title fade-up stagger-1">The math <span style="color:var(--red)">works.</span></h2>
-        <p class="section-subtitle fade-up stagger-2">At the Growth tier, 50 clients generates nearly $600K ARR on a platform that costs $155K–$313K to build.</p>
+        <p class="section-subtitle fade-up stagger-2">At the bundle mid-range ($549 avg), 50 clients generates $329K ARR with ~$100/client costs leaving strong margins.</p>
 
         <div class="rev-highlight fade-up stagger-3">
             <div class="rev-box">
                 <div class="rev-num">50</div>
-                <div class="rev-label">Clients at $997/mo</div>
+                <div class="rev-label">Clients at ~$549/mo avg</div>
             </div>
             <div class="rev-box">
-                <div class="rev-num">$49.8K</div>
+                <div class="rev-num">$27.5K</div>
                 <div class="rev-label">Monthly Revenue</div>
             </div>
             <div class="rev-box">
-                <div class="rev-num">$598K</div>
+                <div class="rev-num">$329K</div>
                 <div class="rev-label">Annual Revenue</div>
             </div>
             <div class="rev-box" style="border-color:var(--red);">
-                <div class="rev-num" style="color:var(--white);">~2x</div>
-                <div class="rev-label">Year 1 ROI on Build</div>
+                <div class="rev-num" style="color:var(--white);">~82%</div>
+                <div class="rev-label">Gross Margin per Client</div>
             </div>
         </div>
 
@@ -3172,7 +3185,7 @@
                 <div class="stat-label">Build Investment</div>
             </div>
             <div class="stat-item" style="text-align:center;">
-                <div class="stat-num">$598K</div>
+                <div class="stat-num">$329K</div>
                 <div class="stat-label">Year 1 Revenue @ 50 Clients</div>
             </div>
         </div>

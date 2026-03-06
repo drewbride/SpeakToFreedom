@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakToFreedom — Deck Review</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            padding: 60px 24px;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header .label {
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #c41e3a;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .header h1 span { color: #c41e3a; }
+
+        .header p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .view-full {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background: #c41e3a;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .view-full:hover {
+            background: #e63956;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(196,30,58,0.3);
+        }
+
+        /* Table */
+        .slide-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 6px;
+        }
+
+        .slide-table thead th {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            font-weight: 600;
+            padding: 8px 16px 12px;
+            text-align: left;
+        }
+
+        .slide-table thead th:first-child { width: 50px; text-align: center; }
+        .slide-table thead th:last-child { width: 100px; text-align: center; }
+
+        .slide-table tbody tr {
+            background: #161616;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .slide-table tbody tr:hover {
+            background: #1a1a1a;
+            transform: translateX(4px);
+        }
+
+        .slide-table tbody tr.section-header {
+            background: none;
+            cursor: default;
+        }
+
+        .slide-table tbody tr.section-header:hover {
+            transform: none;
+        }
+
+        .slide-table tbody tr.section-header td {
+            padding: 24px 16px 8px;
+            border: none;
+        }
+
+        .section-label {
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #c41e3a;
+            font-weight: 700;
+        }
+
+        .slide-table td {
+            padding: 14px 16px;
+            vertical-align: middle;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .slide-table td:first-child {
+            border-radius: 12px 0 0 12px;
+            border-left: 1px solid rgba(255,255,255,0.04);
+            text-align: center;
+        }
+
+        .slide-table td:last-child {
+            border-radius: 0 12px 12px 0;
+            border-right: 1px solid rgba(255,255,255,0.04);
+            text-align: center;
+        }
+
+        .slide-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .slide-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .slide-desc {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.45);
+            margin-top: 2px;
+        }
+
+        .slide-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 14px;
+            background: rgba(196,30,58,0.1);
+            color: #e63956;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            border: 1px solid rgba(196,30,58,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .slide-link:hover {
+            background: rgba(196,30,58,0.2);
+            border-color: rgba(196,30,58,0.4);
+        }
+
+        .slide-link svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .footer p {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 32px 16px; }
+            .slide-table td { padding: 10px 12px; }
+            .slide-desc { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="label">Development Proposal Review</div>
+            <h1>Speak<span>To</span>Freedom</h1>
+            <p>Unified Outreach Ecosystem — 18 slides for your review. Click any slide to jump directly to it.</p>
+            <a href="https://drewbride.github.io/SpeakToFreedom/" class="view-full" target="_blank">View Full Deck &rarr;</a>
+        </div>
+
+        <table class="slide-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Slide</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="section-header"><td colspan="3"><span class="section-label">Overview</span></td></tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">01</span></td>
+                    <td><div class="slide-title">Title</div><div class="slide-desc">SpeakToFreedom — Unified Outreach Ecosystem</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s1" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">02</span></td>
+                    <td><div class="slide-title">The Problem</div><div class="slide-desc">Cold outreach is broken by default</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s2" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">03</span></td>
+                    <td><div class="slide-title">The Solution</div><div class="slide-desc">One ecosystem, zero friction</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s3" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">04</span></td>
+                    <td><div class="slide-title">The Ecosystem</div><div class="slide-desc">18 modules, one platform</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s4" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+
+                <tr class="section-header"><td colspan="3"><span class="section-label">Platform Deep Dives</span></td></tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">05</span></td>
+                    <td><div class="slide-title">Dashboard</div><div class="slide-desc">Client overview, campaign stats, inbox health</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#dd-dashboard" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">06</span></td>
+                    <td><div class="slide-title">Campaigns</div><div class="slide-desc">Sequence builder, inbox rotation, scheduling</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#dd-campaigns" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">07</span></td>
+                    <td><div class="slide-title">Lead Browser</div><div class="slide-desc">STFLeadlist search, filter, push to campaigns</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#dd-leads" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">08</span></td>
+                    <td><div class="slide-title">Inbox Manager</div><div class="slide-desc">Domain health, warmup status, rotation config</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#dd-inboxes" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">09</span></td>
+                    <td><div class="slide-title">Analytics</div><div class="slide-desc">Campaign performance, reply rates, trends</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#dd-analytics" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">10</span></td>
+                    <td><div class="slide-title">Unified Inbox</div><div class="slide-desc">All replies in one thread view</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#dd-inbox" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">11</span></td>
+                    <td><div class="slide-title">Settings</div><div class="slide-desc">Account config, API connections, usage limits</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#dd-settings" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">12</span></td>
+                    <td><div class="slide-title">Admin Panel</div><div class="slide-desc">Client management, MRR, approvals</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#dd-admin" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+
+                <tr class="section-header"><td colspan="3"><span class="section-label">Build & Business</span></td></tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">13</span></td>
+                    <td><div class="slide-title">Build Timeline</div><div class="slide-desc">12 weeks, five phases</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s5" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">14</span></td>
+                    <td><div class="slide-title">Build Cost</div><div class="slide-desc">$155K–$313K investment breakdown</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s6" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">15</span></td>
+                    <td><div class="slide-title">Pricing Model</div><div class="slide-desc">CRM + Outreach bundle $499–$599, Standalone $299</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s7" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">16</span></td>
+                    <td><div class="slide-title">Client Value</div><div class="slide-desc">What your clients save & earn</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s7b" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">17</span></td>
+                    <td><div class="slide-title">Revenue Potential</div><div class="slide-desc">50 clients = $27.5K MRR / $329K ARR</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s8" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+                <tr onclick="window.open(this.querySelector('a').href)">
+                    <td><span class="slide-num">18</span></td>
+                    <td><div class="slide-title">Let's Build</div><div class="slide-desc">Closing — the outreach engine your clients deserve</div></td>
+                    <td><a href="https://drewbride.github.io/SpeakToFreedom/#s10" target="_blank" class="slide-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <img src="next-level-ux.png" alt="Next Level UX">
+            <p>Designed by Next Level UX</p>
+        </div>
+    </div>
+</body>
+</html>

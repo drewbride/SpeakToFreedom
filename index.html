@@ -854,6 +854,670 @@
             margin-bottom: 6px;
         }
 
+        /* ─── DEEP-DIVE SPLIT VIEW ─── */
+        .split-view {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 48px;
+            align-items: start;
+            margin-top: 32px;
+        }
+
+        .split-content { display: flex; flex-direction: column; gap: 20px; }
+
+        .split-content .purpose-block {
+            background: var(--black-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-left: 3px solid var(--red);
+            border-radius: 0 12px 12px 0;
+            padding: 24px 28px;
+        }
+
+        .split-content .purpose-block h4 {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .split-content .purpose-block p {
+            font-size: 0.88rem;
+            color: var(--white-dim);
+            line-height: 1.7;
+        }
+
+        .split-content .feature-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .split-content .feature-list li {
+            font-size: 0.82rem;
+            color: var(--white-dim);
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .split-content .feature-list li:hover {
+            background: rgba(196,30,58,0.06);
+            border-color: rgba(196,30,58,0.2);
+            padding-left: 20px;
+        }
+
+        .split-content .feature-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: var(--red);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ─── APP SHELL MOCKUP ─── */
+        .app-shell {
+            background: #0d0d0d;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 40px rgba(196,30,58,0.04);
+        }
+
+        .app-shell-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .app-shell-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .app-shell-dot.r { background: #ff5f57; }
+        .app-shell-dot.y { background: #febc2e; }
+        .app-shell-dot.g { background: #28c840; }
+
+        .app-shell-url {
+            margin-left: 12px;
+            font-size: 0.65rem;
+            color: var(--white-muted);
+            background: rgba(255,255,255,0.04);
+            padding: 4px 14px;
+            border-radius: 6px;
+            flex: 1;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+        }
+
+        .app-shell-body {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            min-height: 420px;
+        }
+
+        .app-sidebar {
+            background: rgba(255,255,255,0.02);
+            border-right: 1px solid rgba(255,255,255,0.06);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .app-sidebar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            font-weight: 900;
+            padding: 0 16px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 8px;
+        }
+
+        .app-sidebar-brand span { color: var(--red); }
+
+        .app-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            font-size: 0.78rem;
+            color: var(--white-muted);
+            cursor: default;
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .app-nav-item.active {
+            color: var(--white);
+            background: rgba(196,30,58,0.08);
+            border-left-color: var(--red);
+            font-weight: 600;
+        }
+
+        .app-nav-item .nav-icon {
+            width: 18px;
+            text-align: center;
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        .app-nav-item.active .nav-icon { opacity: 1; }
+
+        .app-main {
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .app-main-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .app-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            cursor: default;
+            transition: all 0.2s ease;
+        }
+
+        .app-btn-primary {
+            background: var(--red);
+            color: white;
+        }
+
+        .app-btn-ghost {
+            background: rgba(255,255,255,0.06);
+            color: var(--white-dim);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* Mini stat cards inside app shell */
+        .app-stat-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .app-stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 14px 12px;
+        }
+
+        .app-stat-card .app-stat-val {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .app-stat-card .app-stat-label {
+            font-size: 0.6rem;
+            color: var(--white-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+
+        .app-stat-card.highlight .app-stat-val { color: var(--red-glow); }
+
+        /* Mock table inside app shell */
+        .app-table {
+            width: 100%;
+            font-size: 0.72rem;
+            border-collapse: collapse;
+        }
+
+        .app-table th {
+            text-align: left;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--white-muted);
+            padding: 10px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            font-weight: 600;
+        }
+
+        .app-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--white-dim);
+        }
+
+        .app-table .status {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 100px;
+            font-size: 0.6rem;
+            font-weight: 600;
+        }
+
+        .status-active { background: rgba(40,200,64,0.15); color: #28c840; }
+        .status-warmup { background: rgba(254,188,46,0.15); color: #febc2e; }
+        .status-paused { background: rgba(255,255,255,0.08); color: var(--white-muted); }
+        .status-sending { background: rgba(196,30,58,0.15); color: var(--red-glow); }
+        .status-healthy { background: rgba(40,200,64,0.15); color: #28c840; }
+        .status-warning { background: rgba(254,188,46,0.15); color: #febc2e; }
+
+        /* Mock chart placeholder */
+        .app-chart {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 12px;
+            position: relative;
+            height: 120px;
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+        }
+
+        .app-chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, var(--red), var(--red-glow));
+            border-radius: 4px 4px 0 0;
+            min-height: 8px;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .app-chart-bar:hover { opacity: 1; }
+
+        /* ─── CALLOUT TOOLTIPS ─── */
+        .callout {
+            position: absolute;
+            z-index: 10;
+        }
+
+        .callout-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--red);
+            cursor: pointer;
+            position: relative;
+            animation: callout-pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 12px rgba(196,30,58,0.5);
+        }
+
+        .callout-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(196,30,58,0.4);
+            animation: callout-ring 2s ease-in-out infinite;
+        }
+
+        @keyframes callout-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        @keyframes callout-ring {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.6); opacity: 0; }
+        }
+
+        .callout-tip {
+            position: absolute;
+            left: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--black-card);
+            border: 1px solid rgba(196,30,58,0.3);
+            border-radius: 10px;
+            padding: 10px 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+
+        .callout-tip::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            background: var(--black-card);
+            border-left: 1px solid rgba(196,30,58,0.3);
+            border-bottom: 1px solid rgba(196,30,58,0.3);
+        }
+
+        .callout:hover .callout-tip {
+            opacity: 1;
+            transform: translateY(-50%) translateX(6px);
+        }
+
+        .callout-tip .ct-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 2px;
+        }
+
+        .callout-tip .ct-desc {
+            font-size: 0.65rem;
+            color: var(--white-muted);
+        }
+
+        .callout.right .callout-tip {
+            left: auto;
+            right: 22px;
+        }
+
+        .callout.right .callout-tip::before {
+            left: auto;
+            right: -6px;
+            border-left: none;
+            border-bottom: none;
+            border-right: 1px solid rgba(196,30,58,0.3);
+            border-top: 1px solid rgba(196,30,58,0.3);
+        }
+
+        .callout.bottom .callout-tip {
+            left: 50%;
+            top: auto;
+            bottom: -8px;
+            transform: translateX(-50%) translateY(100%);
+        }
+
+        .callout:hover.bottom .callout-tip {
+            transform: translateX(-50%) translateY(calc(100% + 6px));
+        }
+
+        /* Inbox health bars */
+        .health-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.06);
+            overflow: hidden;
+            margin-top: 6px;
+        }
+
+        .health-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+
+        .health-bar-fill.green { background: #28c840; }
+        .health-bar-fill.yellow { background: #febc2e; }
+        .health-bar-fill.red { background: var(--red-glow); }
+
+        /* App shell thread / inbox items */
+        .app-thread {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .app-thread:hover { background: rgba(255,255,255,0.02); }
+
+        .app-thread-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(196,30,58,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--red-glow);
+            flex-shrink: 0;
+        }
+
+        .app-thread-content { flex: 1; min-width: 0; }
+
+        .app-thread-name {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .app-thread-preview {
+            font-size: 0.68rem;
+            color: var(--white-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .app-thread-meta {
+            font-size: 0.6rem;
+            color: var(--white-muted);
+            white-space: nowrap;
+        }
+
+        .app-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .badge-crm { background: rgba(196,30,58,0.15); color: var(--red-glow); }
+        .badge-unread { background: rgba(40,200,64,0.15); color: #28c840; }
+
+        /* Wizard steps */
+        .app-wizard-steps {
+            display: flex;
+            gap: 0;
+            margin-bottom: 20px;
+        }
+
+        .app-wizard-step {
+            flex: 1;
+            text-align: center;
+            padding: 10px 8px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--white-muted);
+            background: rgba(255,255,255,0.02);
+            border-bottom: 2px solid rgba(255,255,255,0.06);
+            position: relative;
+        }
+
+        .app-wizard-step.active {
+            color: var(--white);
+            border-bottom-color: var(--red);
+            background: rgba(196,30,58,0.06);
+        }
+
+        .app-wizard-step.done {
+            color: #28c840;
+            border-bottom-color: #28c840;
+        }
+
+        /* Lead category cards */
+        .app-lead-cats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .app-lead-cat {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            padding: 12px 10px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .app-lead-cat.selected {
+            border-color: var(--red);
+            background: rgba(196,30,58,0.08);
+        }
+
+        .app-lead-cat .cat-count {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--white);
+        }
+
+        .app-lead-cat .cat-name {
+            font-size: 0.6rem;
+            color: var(--white-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        /* Settings form mock */
+        .app-form-group {
+            margin-bottom: 14px;
+        }
+
+        .app-form-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--white-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .app-form-input {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: var(--white-dim);
+            font-size: 0.78rem;
+            font-family: inherit;
+        }
+
+        /* Admin panel specific */
+        .app-admin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .app-client-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .app-client-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(196,30,58,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--red-glow);
+            flex-shrink: 0;
+        }
+
+        /* Deep-dive slide label */
+        .pillar-num {
+            display: inline-block;
+            background: var(--red-soft);
+            color: var(--red-glow);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        /* ─── PAGE NUMBER ─── */
+        .page-num {
+            position: absolute;
+            bottom: 24px;
+            right: 40px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--white-muted);
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .page-num .current {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--white);
+        }
+
+        .page-num .divider {
+            width: 20px;
+            height: 1px;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .page-num .total {
+            color: var(--white-muted);
+        }
+
+        .page-num .page-link {
+            font-size: 0.55rem;
+            color: var(--red);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .slide:hover .page-num .page-link { opacity: 0.6; }
+        .slide:hover .page-num .page-link:hover { opacity: 1; }
+
         /* ─── RESPONSIVE ─── */
         @media (max-width: 900px) {
             .slide { padding: 40px 24px; }
@@ -866,6 +1530,12 @@
             .meta-row { flex-direction: column; gap: 12px; }
             .rev-highlight { flex-direction: column; }
             .slide-nav { display: none; }
+            .page-num { right: 24px; bottom: 16px; }
+            .split-view { grid-template-columns: 1fr; gap: 32px; }
+            .app-shell-body { grid-template-columns: 160px 1fr; }
+            .app-stat-row { grid-template-columns: repeat(2, 1fr); }
+            .app-lead-cats { grid-template-columns: repeat(2, 1fr); }
+            .app-admin-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 600px) {
@@ -873,6 +1543,9 @@
             .module-grid { grid-template-columns: 1fr; }
             .invest-table { font-size: 0.8rem; }
             .invest-table td, .invest-table th { padding: 12px 8px; }
+            .app-shell-body { grid-template-columns: 1fr; }
+            .app-sidebar { display: none; }
+            .app-stat-row { grid-template-columns: 1fr 1fr; }
         }
 
         /* ─── ANIMATIONS ─── */
@@ -1011,7 +1684,7 @@
                 <div class="stat-label">Manual Steps</div>
             </div>
             <div class="stat-item">
-                <div class="stat-num">7-8</div>
+                <div class="stat-num">12</div>
                 <div class="stat-label">Weeks to Build</div>
             </div>
         </div>
@@ -1060,13 +1733,1076 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════
+     DEEP DIVE: DASHBOARD (Module 08)
+     ═══════════════════════════════════════════════════ -->
+<section class="slide" id="dd-dashboard" style="padding-top:60px;padding-bottom:60px;">
+    <div class="glow-orb glow-red" style="top:10%;right:-8%;"></div>
+    <div class="slide-inner">
+        <span class="pillar-num fade-up">MODULE 08</span>
+        <h2 class="section-title fade-up stagger-1">Dashboard</h2>
+        <p class="section-subtitle fade-up stagger-2">The command center. Every metric that matters, one glance.</p>
+
+        <div class="split-view fade-up stagger-3">
+            <div class="split-content">
+                <div class="purpose-block">
+                    <h4>Purpose</h4>
+                    <p>Give clients instant visibility into campaign performance, inbox health, and lead pipeline without navigating multiple screens.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Intention</h4>
+                    <p>Replace the "check 5 tools" morning routine with a single dashboard that surfaces what needs attention — proactively.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Solution</h4>
+                    <p>Real-time stat cards, weekly performance charts, inbox health widget with auto-alerts, and quick-action buttons to launch campaigns or browse leads instantly.</p>
+                </div>
+                <ul class="feature-list">
+                    <li>Active campaigns counter with status breakdown</li>
+                    <li>Emails sent / replies / reply rate KPIs</li>
+                    <li>Inbox health widget with color-coded status</li>
+                    <li>Weekly performance trend chart</li>
+                    <li>Quick actions: New Campaign, Browse Leads</li>
+                    <li>Leads available meter with plan cap</li>
+                </ul>
+            </div>
+
+            <div class="app-shell">
+                <div class="app-shell-bar">
+                    <div class="app-shell-dot r"></div>
+                    <div class="app-shell-dot y"></div>
+                    <div class="app-shell-dot g"></div>
+                    <span class="app-shell-url">app.speaktofreedom.com/dashboard</span>
+                </div>
+                <div class="app-shell-body">
+                    <nav class="app-sidebar">
+                        <div class="app-sidebar-brand">S<span>TF</span></div>
+                        <div class="app-nav-item active"><span class="nav-icon">&#9632;</span> Dashboard</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9654;</span> Campaigns</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9733;</span> Leads</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9993;</span> Inboxes</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                    </nav>
+                    <div class="app-main">
+                        <div class="app-main-header">
+                            <h3>Dashboard</h3>
+                            <div style="display:flex;gap:8px;">
+                                <span class="app-btn app-btn-primary">+ New Campaign</span>
+                                <span class="app-btn app-btn-ghost">Browse Leads</span>
+                            </div>
+                        </div>
+
+                        <!-- Callout: stat cards -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:-4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Real-time KPIs</div>
+                                    <div class="ct-desc">Auto-refreshed from Smartlead API</div>
+                                </div>
+                            </div>
+                            <div class="app-stat-row">
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val">4</div>
+                                    <div class="app-stat-label">Active Campaigns</div>
+                                </div>
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val">12,847</div>
+                                    <div class="app-stat-label">Emails Sent</div>
+                                </div>
+                                <div class="app-stat-card highlight">
+                                    <div class="app-stat-val">4.2%</div>
+                                    <div class="app-stat-label">Reply Rate</div>
+                                </div>
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val">1,340</div>
+                                    <div class="app-stat-label">Leads Left</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Callout: chart -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:8px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Weekly Trend</div>
+                                    <div class="ct-desc">Emails, opens, replies by week</div>
+                                </div>
+                            </div>
+                            <div class="app-chart">
+                                <div class="app-chart-bar" style="height:35%;"></div>
+                                <div class="app-chart-bar" style="height:52%;"></div>
+                                <div class="app-chart-bar" style="height:48%;"></div>
+                                <div class="app-chart-bar" style="height:65%;"></div>
+                                <div class="app-chart-bar" style="height:72%;"></div>
+                                <div class="app-chart-bar" style="height:58%;"></div>
+                                <div class="app-chart-bar" style="height:85%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Inbox health mini -->
+                        <div style="position:relative;margin-top:14px;">
+                            <div class="callout" style="top:2px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Inbox Health</div>
+                                    <div class="ct-desc">Auto-monitored, alerts on degradation</div>
+                                </div>
+                            </div>
+                            <div style="font-size:0.68rem;color:var(--white-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">Inbox Health</div>
+                            <div style="display:flex;gap:8px;">
+                                <div style="flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:10px;">
+                                    <div style="font-size:0.7rem;font-weight:600;margin-bottom:4px;">inbox-01@lead.io</div>
+                                    <div class="health-bar"><div class="health-bar-fill green" style="width:92%;"></div></div>
+                                </div>
+                                <div style="flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:10px;">
+                                    <div style="font-size:0.7rem;font-weight:600;margin-bottom:4px;">inbox-02@lead.io</div>
+                                    <div class="health-bar"><div class="health-bar-fill green" style="width:88%;"></div></div>
+                                </div>
+                                <div style="flex:1;background:rgba(255,255,255,0.03);border-radius:8px;padding:10px;">
+                                    <div style="font-size:0.7rem;font-weight:600;margin-bottom:4px;">inbox-03@lead.io</div>
+                                    <div class="health-bar"><div class="health-bar-fill yellow" style="width:67%;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     DEEP DIVE: CAMPAIGN MANAGER (Module 09)
+     ═══════════════════════════════════════════════════ -->
+<section class="slide" id="dd-campaigns" style="padding-top:60px;padding-bottom:60px;">
+    <div class="glow-orb glow-red" style="bottom:-10%;left:10%;"></div>
+    <div class="slide-inner">
+        <span class="pillar-num fade-up">MODULE 09</span>
+        <h2 class="section-title fade-up stagger-1">Campaign Manager</h2>
+        <p class="section-subtitle fade-up stagger-2">From blank slate to live outreach in 4 guided steps.</p>
+
+        <div class="split-view fade-up stagger-3">
+            <div class="split-content">
+                <div class="purpose-block">
+                    <h4>Purpose</h4>
+                    <p>Enable clients to build, launch, and monitor multi-step email campaigns without touching Smartlead directly.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Intention</h4>
+                    <p>Eliminate the complexity of campaign setup — no CSV uploads, no manual inbox assignment, no forgotten follow-ups. A wizard that does it right every time.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Solution</h4>
+                    <p>4-step wizard (Info → Sequence Builder → Select Leads → Schedule & Review) with per-lead status tracking, automatic inbox rotation, and real-time send monitoring.</p>
+                </div>
+                <ul class="feature-list">
+                    <li>4-step guided campaign wizard</li>
+                    <li>Multi-step sequence builder with delays</li>
+                    <li>Auto inbox rotation across healthy inboxes</li>
+                    <li>Per-lead status: queued, sent, opened, replied</li>
+                    <li>Pause / resume / archive controls</li>
+                    <li>Campaign-level analytics embedded</li>
+                </ul>
+            </div>
+
+            <div class="app-shell">
+                <div class="app-shell-bar">
+                    <div class="app-shell-dot r"></div>
+                    <div class="app-shell-dot y"></div>
+                    <div class="app-shell-dot g"></div>
+                    <span class="app-shell-url">app.speaktofreedom.com/campaigns/new</span>
+                </div>
+                <div class="app-shell-body">
+                    <nav class="app-sidebar">
+                        <div class="app-sidebar-brand">S<span>TF</span></div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9632;</span> Dashboard</div>
+                        <div class="app-nav-item active"><span class="nav-icon">&#9654;</span> Campaigns</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9733;</span> Leads</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9993;</span> Inboxes</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                    </nav>
+                    <div class="app-main">
+                        <!-- Callout: wizard -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:12px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Guided Wizard</div>
+                                    <div class="ct-desc">4 steps, no guesswork</div>
+                                </div>
+                            </div>
+                            <div class="app-wizard-steps">
+                                <div class="app-wizard-step done">1. Info</div>
+                                <div class="app-wizard-step active">2. Sequence</div>
+                                <div class="app-wizard-step">3. Leads</div>
+                                <div class="app-wizard-step">4. Review</div>
+                            </div>
+                        </div>
+
+                        <div class="app-main-header">
+                            <h3>Build Sequence</h3>
+                        </div>
+
+                        <!-- Sequence steps mock -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Multi-Step Sequences</div>
+                                    <div class="ct-desc">Add steps with custom delays</div>
+                                </div>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:8px;">
+                                <div style="background:rgba(196,30,58,0.06);border:1px solid rgba(196,30,58,0.2);border-radius:10px;padding:14px 16px;">
+                                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                                        <div>
+                                            <div style="font-size:0.65rem;color:var(--red);font-weight:700;letter-spacing:1px;text-transform:uppercase;">Step 1 — Initial</div>
+                                            <div style="font-size:0.82rem;color:var(--white);margin-top:4px;font-weight:600;">Introduction & value prop</div>
+                                        </div>
+                                        <span class="status status-active" style="font-size:0.55rem;">ACTIVE</span>
+                                    </div>
+                                    <div style="font-size:0.72rem;color:var(--white-muted);margin-top:8px;line-height:1.5;">Hi {{firstName}}, noticed {{company}} is scaling their outreach...</div>
+                                </div>
+                                <div style="text-align:center;font-size:0.6rem;color:var(--white-muted);letter-spacing:2px;">&#8595; WAIT 3 DAYS &#8595;</div>
+                                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;">
+                                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                                        <div>
+                                            <div style="font-size:0.65rem;color:var(--white-muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;">Step 2 — Follow-up</div>
+                                            <div style="font-size:0.82rem;color:var(--white);margin-top:4px;font-weight:600;">Social proof + CTA</div>
+                                        </div>
+                                    </div>
+                                    <div style="font-size:0.72rem;color:var(--white-muted);margin-top:8px;line-height:1.5;">Quick follow up — wanted to share how {{industry}} teams are...</div>
+                                </div>
+                                <div style="text-align:center;font-size:0.6rem;color:var(--white-muted);letter-spacing:2px;">&#8595; WAIT 4 DAYS &#8595;</div>
+                                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;">
+                                    <div>
+                                        <div style="font-size:0.65rem;color:var(--white-muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;">Step 3 — Break-up</div>
+                                        <div style="font-size:0.82rem;color:var(--white);margin-top:4px;font-weight:600;">Last touch + alternative CTA</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display:flex;gap:8px;margin-top:16px;justify-content:flex-end;">
+                            <span class="app-btn app-btn-ghost">+ Add Step</span>
+                            <span class="app-btn app-btn-primary">Next: Select Leads &#10132;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     DEEP DIVE: LEAD BROWSER (Module 10)
+     ═══════════════════════════════════════════════════ -->
+<section class="slide" id="dd-leads" style="padding-top:60px;padding-bottom:60px;">
+    <div class="glow-orb glow-red" style="top:20%;left:-5%;"></div>
+    <div class="slide-inner">
+        <span class="pillar-num fade-up">MODULE 10</span>
+        <h2 class="section-title fade-up stagger-1">Lead Browser</h2>
+        <p class="section-subtitle fade-up stagger-2">Browse, filter, select, and push leads — no CSVs, no exports.</p>
+
+        <div class="split-view fade-up stagger-3">
+            <div class="split-content">
+                <div class="purpose-block">
+                    <h4>Purpose</h4>
+                    <p>Give clients direct access to STFLeadlist's verified lead database through an intuitive browsing interface — no third-party tool required.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Intention</h4>
+                    <p>Kill the CSV export workflow. Clients find leads, select them, and push directly into campaigns — all within STF. The lead database becomes a native feature, not a separate subscription.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Solution</h4>
+                    <p>Category-based browsing with location/date search, multi-select with bulk actions, and one-click push-to-campaign. Usage tracked against the monthly lead cap (2,000/mo).</p>
+                </div>
+                <ul class="feature-list">
+                    <li>STFLeadlist integration with category cards</li>
+                    <li>Location + date range search filters</li>
+                    <li>Multi-select with shift-click support</li>
+                    <li>Push-to-campaign in one click</li>
+                    <li>Usage meter: leads used vs. plan limit</li>
+                    <li>Suppression check before push</li>
+                </ul>
+            </div>
+
+            <div class="app-shell">
+                <div class="app-shell-bar">
+                    <div class="app-shell-dot r"></div>
+                    <div class="app-shell-dot y"></div>
+                    <div class="app-shell-dot g"></div>
+                    <span class="app-shell-url">app.speaktofreedom.com/leads</span>
+                </div>
+                <div class="app-shell-body">
+                    <nav class="app-sidebar">
+                        <div class="app-sidebar-brand">S<span>TF</span></div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9632;</span> Dashboard</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9654;</span> Campaigns</div>
+                        <div class="app-nav-item active"><span class="nav-icon">&#9733;</span> Leads</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9993;</span> Inboxes</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                    </nav>
+                    <div class="app-main">
+                        <div class="app-main-header">
+                            <h3>Lead Browser</h3>
+                            <div style="display:flex;gap:8px;align-items:center;">
+                                <span style="font-size:0.65rem;color:var(--white-muted);">660 / 2,000 used</span>
+                                <span class="app-btn app-btn-primary">Push to Campaign</span>
+                            </div>
+                        </div>
+
+                        <!-- Callout: categories -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:-4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Category Browse</div>
+                                    <div class="ct-desc">STFLeadlist categories, live data</div>
+                                </div>
+                            </div>
+                            <div class="app-lead-cats">
+                                <div class="app-lead-cat selected">
+                                    <div class="cat-count">8,420</div>
+                                    <div class="cat-name">SaaS</div>
+                                </div>
+                                <div class="app-lead-cat">
+                                    <div class="cat-count">5,190</div>
+                                    <div class="cat-name">E-Commerce</div>
+                                </div>
+                                <div class="app-lead-cat">
+                                    <div class="cat-count">3,750</div>
+                                    <div class="cat-name">Agency</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Search bar -->
+                        <div style="display:flex;gap:8px;margin-bottom:12px;">
+                            <div class="app-form-input" style="flex:2;padding:8px 12px;font-size:0.72rem;">&#128269; San Francisco, CA</div>
+                            <div class="app-form-input" style="flex:1;padding:8px 12px;font-size:0.72rem;">Last 30 days</div>
+                        </div>
+
+                        <!-- Callout: table -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Multi-Select</div>
+                                    <div class="ct-desc">Bulk select → push to campaign</div>
+                                </div>
+                            </div>
+                            <table class="app-table">
+                                <thead>
+                                    <tr><th style="width:28px;"><span style="opacity:0.4;">&#9744;</span></th><th>Name</th><th>Company</th><th>Title</th><th>Location</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><span style="color:var(--red);">&#9745;</span></td><td style="font-weight:600;color:var(--white);">Sarah Chen</td><td>Acme SaaS</td><td>VP Marketing</td><td>San Francisco</td></tr>
+                                    <tr><td><span style="color:var(--red);">&#9745;</span></td><td style="font-weight:600;color:var(--white);">Mike Torres</td><td>Growthly</td><td>Head of Sales</td><td>San Francisco</td></tr>
+                                    <tr><td><span style="opacity:0.4;">&#9744;</span></td><td style="font-weight:600;color:var(--white);">Lisa Park</td><td>ClosedLoop</td><td>Director Ops</td><td>Oakland</td></tr>
+                                    <tr><td><span style="opacity:0.4;">&#9744;</span></td><td style="font-weight:600;color:var(--white);">James Wu</td><td>ScaleStack</td><td>CEO</td><td>San Jose</td></tr>
+                                    <tr><td><span style="opacity:0.4;">&#9744;</span></td><td style="font-weight:600;color:var(--white);">Anna Reyes</td><td>DataForge</td><td>CMO</td><td>Palo Alto</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     DEEP DIVE: INBOX MANAGER (Module 11)
+     ═══════════════════════════════════════════════════ -->
+<section class="slide" id="dd-inboxes" style="padding-top:60px;padding-bottom:60px;">
+    <div class="glow-orb glow-red" style="bottom:5%;right:10%;"></div>
+    <div class="slide-inner">
+        <span class="pillar-num fade-up">MODULE 11</span>
+        <h2 class="section-title fade-up stagger-1">Inbox Manager</h2>
+        <p class="section-subtitle fade-up stagger-2">Monitor, protect, and scale your sending infrastructure.</p>
+
+        <div class="split-view fade-up stagger-3">
+            <div class="split-content">
+                <div class="purpose-block">
+                    <h4>Purpose</h4>
+                    <p>Provide full visibility into every managed inbox — health scores, warmup progress, daily limits, and DNS status — in one consolidated view.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Intention</h4>
+                    <p>Prevent the silent killer of cold outreach: inbox degradation. Auto-monitoring means bad inboxes get pulled from campaigns before they tank your reputation.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Solution</h4>
+                    <p>Health percentage per inbox, warmup progress tracking, DNS status verification, 3-step "Add Mailbox" wizard via Zapmail API, and automatic campaign removal when health drops below threshold.</p>
+                </div>
+                <ul class="feature-list">
+                    <li>Health % with color-coded indicators</li>
+                    <li>Warmup progress bars per inbox</li>
+                    <li>Daily send limits and DNS status</li>
+                    <li>3-step "Add Mailbox" wizard via Zapmail</li>
+                    <li>Auto-remove unhealthy inboxes from rotation</li>
+                    <li>Return-to-warmup automation</li>
+                </ul>
+            </div>
+
+            <div class="app-shell">
+                <div class="app-shell-bar">
+                    <div class="app-shell-dot r"></div>
+                    <div class="app-shell-dot y"></div>
+                    <div class="app-shell-dot g"></div>
+                    <span class="app-shell-url">app.speaktofreedom.com/inboxes</span>
+                </div>
+                <div class="app-shell-body">
+                    <nav class="app-sidebar">
+                        <div class="app-sidebar-brand">S<span>TF</span></div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9632;</span> Dashboard</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9654;</span> Campaigns</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9733;</span> Leads</div>
+                        <div class="app-nav-item active"><span class="nav-icon">&#9993;</span> Inboxes</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                    </nav>
+                    <div class="app-main">
+                        <div class="app-main-header">
+                            <h3>Inbox Manager</h3>
+                            <span class="app-btn app-btn-primary">+ Add Mailbox</span>
+                        </div>
+
+                        <div style="display:flex;gap:8px;margin-bottom:16px;">
+                            <div class="app-stat-card" style="flex:1;">
+                                <div class="app-stat-val" style="font-size:1.1rem;">10</div>
+                                <div class="app-stat-label">Total Inboxes</div>
+                            </div>
+                            <div class="app-stat-card" style="flex:1;">
+                                <div class="app-stat-val" style="font-size:1.1rem;color:#28c840;">8</div>
+                                <div class="app-stat-label">Healthy</div>
+                            </div>
+                            <div class="app-stat-card" style="flex:1;">
+                                <div class="app-stat-val" style="font-size:1.1rem;color:#febc2e;">1</div>
+                                <div class="app-stat-label">Warning</div>
+                            </div>
+                            <div class="app-stat-card" style="flex:1;">
+                                <div class="app-stat-val" style="font-size:1.1rem;color:var(--red-glow);">1</div>
+                                <div class="app-stat-label">Warmup</div>
+                            </div>
+                        </div>
+
+                        <!-- Callout: health monitoring -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Auto Health Monitor</div>
+                                    <div class="ct-desc">Polls every 30min, auto-pulls bad inboxes</div>
+                                </div>
+                            </div>
+                            <table class="app-table">
+                                <thead>
+                                    <tr><th>Inbox</th><th>Health</th><th>Warmup</th><th>Limit</th><th>DNS</th><th>Status</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-weight:600;color:var(--white);">inbox-01@outreach.io</td>
+                                        <td><span style="color:#28c840;font-weight:700;">95%</span></td>
+                                        <td><div class="health-bar" style="width:60px;"><div class="health-bar-fill green" style="width:100%;"></div></div></td>
+                                        <td>45/day</td>
+                                        <td><span style="color:#28c840;">&#10003;</span></td>
+                                        <td><span class="status status-active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:600;color:var(--white);">inbox-02@outreach.io</td>
+                                        <td><span style="color:#28c840;font-weight:700;">91%</span></td>
+                                        <td><div class="health-bar" style="width:60px;"><div class="health-bar-fill green" style="width:100%;"></div></div></td>
+                                        <td>40/day</td>
+                                        <td><span style="color:#28c840;">&#10003;</span></td>
+                                        <td><span class="status status-active">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:600;color:var(--white);">inbox-03@outreach.io</td>
+                                        <td><span style="color:#febc2e;font-weight:700;">68%</span></td>
+                                        <td><div class="health-bar" style="width:60px;"><div class="health-bar-fill yellow" style="width:100%;"></div></div></td>
+                                        <td>20/day</td>
+                                        <td><span style="color:#28c840;">&#10003;</span></td>
+                                        <td><span class="status status-warning">Warning</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:600;color:var(--white);">inbox-04@send.io</td>
+                                        <td><span style="color:var(--white-muted);font-weight:700;">—</span></td>
+                                        <td><div class="health-bar" style="width:60px;"><div class="health-bar-fill red" style="width:42%;"></div></div></td>
+                                        <td>10/day</td>
+                                        <td><span style="color:#febc2e;">&#9888;</span></td>
+                                        <td><span class="status status-warmup">Warmup</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     DEEP DIVE: ANALYTICS (Module 12)
+     ═══════════════════════════════════════════════════ -->
+<section class="slide" id="dd-analytics" style="padding-top:60px;padding-bottom:60px;">
+    <div class="glow-orb glow-red" style="top:15%;left:5%;"></div>
+    <div class="slide-inner">
+        <span class="pillar-num fade-up">MODULE 12</span>
+        <h2 class="section-title fade-up stagger-1">Analytics</h2>
+        <p class="section-subtitle fade-up stagger-2">Performance intelligence that drives better campaigns.</p>
+
+        <div class="split-view fade-up stagger-3">
+            <div class="split-content">
+                <div class="purpose-block">
+                    <h4>Purpose</h4>
+                    <p>Transform raw outreach data into actionable insights — know what's working, what's not, and where deliverability needs attention.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Intention</h4>
+                    <p>Clients shouldn't need to export data to a spreadsheet. The analytics page tells the story: which campaigns convert, which inboxes need help, and what their ROI looks like.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Solution</h4>
+                    <p>Time range filters, KPI stat cards, weekly performance chart, top campaigns ranked by reply rate, and a deliverability health panel showing sender reputation trends.</p>
+                </div>
+                <ul class="feature-list">
+                    <li>Time range filters: 7d, 30d, 90d, custom</li>
+                    <li>Stat cards: sent, opened, replied, bounced</li>
+                    <li>Weekly trend chart with multi-metric overlay</li>
+                    <li>Top campaigns ranked by reply rate</li>
+                    <li>Deliverability health panel</li>
+                    <li>Export-ready data summaries</li>
+                </ul>
+            </div>
+
+            <div class="app-shell">
+                <div class="app-shell-bar">
+                    <div class="app-shell-dot r"></div>
+                    <div class="app-shell-dot y"></div>
+                    <div class="app-shell-dot g"></div>
+                    <span class="app-shell-url">app.speaktofreedom.com/analytics</span>
+                </div>
+                <div class="app-shell-body">
+                    <nav class="app-sidebar">
+                        <div class="app-sidebar-brand">S<span>TF</span></div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9632;</span> Dashboard</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9654;</span> Campaigns</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9733;</span> Leads</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9993;</span> Inboxes</div>
+                        <div class="app-nav-item active"><span class="nav-icon">&#9636;</span> Analytics</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                    </nav>
+                    <div class="app-main">
+                        <div class="app-main-header">
+                            <h3>Analytics</h3>
+                            <div style="display:flex;gap:4px;">
+                                <span class="app-btn app-btn-ghost" style="padding:5px 10px;font-size:0.6rem;">7d</span>
+                                <span class="app-btn app-btn-primary" style="padding:5px 10px;font-size:0.6rem;">30d</span>
+                                <span class="app-btn app-btn-ghost" style="padding:5px 10px;font-size:0.6rem;">90d</span>
+                            </div>
+                        </div>
+
+                        <!-- Callout: KPIs -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:-4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Performance KPIs</div>
+                                    <div class="ct-desc">Aggregated across all campaigns</div>
+                                </div>
+                            </div>
+                            <div class="app-stat-row">
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val">12,847</div>
+                                    <div class="app-stat-label">Sent</div>
+                                </div>
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val">4,120</div>
+                                    <div class="app-stat-label">Opened</div>
+                                </div>
+                                <div class="app-stat-card highlight">
+                                    <div class="app-stat-val">539</div>
+                                    <div class="app-stat-label">Replied</div>
+                                </div>
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val">0.8%</div>
+                                    <div class="app-stat-label">Bounced</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chart -->
+                        <div class="app-chart" style="height:100px;">
+                            <div class="app-chart-bar" style="height:30%;"></div>
+                            <div class="app-chart-bar" style="height:45%;"></div>
+                            <div class="app-chart-bar" style="height:55%;"></div>
+                            <div class="app-chart-bar" style="height:50%;"></div>
+                            <div class="app-chart-bar" style="height:70%;"></div>
+                            <div class="app-chart-bar" style="height:65%;"></div>
+                            <div class="app-chart-bar" style="height:80%;"></div>
+                            <div class="app-chart-bar" style="height:75%;"></div>
+                            <div class="app-chart-bar" style="height:90%;"></div>
+                        </div>
+
+                        <!-- Callout: top campaigns -->
+                        <div style="position:relative;margin-top:14px;">
+                            <div class="callout" style="top:2px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Top Campaigns</div>
+                                    <div class="ct-desc">Ranked by reply rate automatically</div>
+                                </div>
+                            </div>
+                            <div style="font-size:0.65rem;color:var(--white-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:8px;">Top Campaigns by Reply Rate</div>
+                            <table class="app-table">
+                                <thead><tr><th>Campaign</th><th>Sent</th><th>Replies</th><th>Rate</th></tr></thead>
+                                <tbody>
+                                    <tr><td style="font-weight:600;color:var(--white);">SaaS Q1 Outreach</td><td>3,200</td><td>186</td><td style="color:var(--red-glow);font-weight:700;">5.8%</td></tr>
+                                    <tr><td style="font-weight:600;color:var(--white);">Agency Decision Makers</td><td>2,800</td><td>134</td><td style="color:var(--red-glow);font-weight:700;">4.8%</td></tr>
+                                    <tr><td style="font-weight:600;color:var(--white);">E-Commerce Founders</td><td>4,100</td><td>156</td><td style="color:var(--red-glow);font-weight:700;">3.8%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     DEEP DIVE: UNIFIED INBOX (Module 13)
+     ═══════════════════════════════════════════════════ -->
+<section class="slide" id="dd-inbox" style="padding-top:60px;padding-bottom:60px;">
+    <div class="glow-orb glow-red" style="bottom:-8%;left:-5%;"></div>
+    <div class="slide-inner">
+        <span class="pillar-num fade-up">MODULE 13</span>
+        <h2 class="section-title fade-up stagger-1">Unified Inbox</h2>
+        <p class="section-subtitle fade-up stagger-2">Every reply, every thread, one place. Reply without leaving STF.</p>
+
+        <div class="split-view fade-up stagger-3">
+            <div class="split-content">
+                <div class="purpose-block">
+                    <h4>Purpose</h4>
+                    <p>Consolidate all campaign replies into a single inbox view — no more checking 10 separate email accounts to find who responded.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Intention</h4>
+                    <p>Close the loop between outreach and conversation. When a lead replies, the client sees it instantly, responds from the platform, and the CRM gets updated automatically.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Solution</h4>
+                    <p>Threaded email view per lead, reply composer built in, read/unread tracking, "Pushed to CRM" badges showing sync status, and filtering by campaign or status.</p>
+                </div>
+                <ul class="feature-list">
+                    <li>Email threads grouped per lead</li>
+                    <li>Reply directly from the platform</li>
+                    <li>Read / unread status tracking</li>
+                    <li>"Pushed to CRM" sync badges</li>
+                    <li>Filter by campaign, status, date</li>
+                    <li>Auto-suppression on reply</li>
+                </ul>
+            </div>
+
+            <div class="app-shell">
+                <div class="app-shell-bar">
+                    <div class="app-shell-dot r"></div>
+                    <div class="app-shell-dot y"></div>
+                    <div class="app-shell-dot g"></div>
+                    <span class="app-shell-url">app.speaktofreedom.com/inbox</span>
+                </div>
+                <div class="app-shell-body">
+                    <nav class="app-sidebar">
+                        <div class="app-sidebar-brand">S<span>TF</span></div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9632;</span> Dashboard</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9654;</span> Campaigns</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9733;</span> Leads</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9993;</span> Inboxes</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
+                        <div class="app-nav-item active"><span class="nav-icon">&#9776;</span> Inbox</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                    </nav>
+                    <div class="app-main">
+                        <div class="app-main-header">
+                            <h3>Unified Inbox</h3>
+                            <div style="display:flex;gap:8px;">
+                                <span class="app-btn app-btn-ghost">All</span>
+                                <span class="app-btn app-btn-primary">Unread (12)</span>
+                            </div>
+                        </div>
+
+                        <!-- Callout: thread list -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Threaded Replies</div>
+                                    <div class="ct-desc">All inboxes → one view</div>
+                                </div>
+                            </div>
+
+                            <div class="app-thread">
+                                <div class="app-thread-avatar">SC</div>
+                                <div class="app-thread-content">
+                                    <div class="app-thread-name">Sarah Chen <span class="app-badge badge-unread" style="margin-left:6px;">NEW</span></div>
+                                    <div class="app-thread-preview">Hey, this sounds interesting. Can we set up a call next week to...</div>
+                                </div>
+                                <div class="app-thread-meta">2m ago</div>
+                            </div>
+
+                            <div class="app-thread">
+                                <div class="app-thread-avatar">MT</div>
+                                <div class="app-thread-content">
+                                    <div class="app-thread-name">Mike Torres <span class="app-badge badge-crm" style="margin-left:6px;">CRM</span></div>
+                                    <div class="app-thread-preview">Thanks for reaching out. We're actually evaluating solutions right now...</div>
+                                </div>
+                                <div class="app-thread-meta">1h ago</div>
+                            </div>
+
+                            <div class="app-thread">
+                                <div class="app-thread-avatar">JP</div>
+                                <div class="app-thread-content">
+                                    <div class="app-thread-name">Jessica Park <span class="app-badge badge-crm" style="margin-left:6px;">CRM</span></div>
+                                    <div class="app-thread-preview">Not the right time for us, but please follow up in Q3...</div>
+                                </div>
+                                <div class="app-thread-meta">3h ago</div>
+                            </div>
+
+                            <div class="app-thread">
+                                <div class="app-thread-avatar">DW</div>
+                                <div class="app-thread-content">
+                                    <div class="app-thread-name">David Wilson <span class="app-badge badge-unread" style="margin-left:6px;">NEW</span></div>
+                                    <div class="app-thread-preview">Interesting timing — we just had a meeting about this exact problem...</div>
+                                </div>
+                                <div class="app-thread-meta">5h ago</div>
+                            </div>
+                        </div>
+
+                        <!-- Reply composer mini -->
+                        <div style="position:relative;margin-top:14px;">
+                            <div class="callout" style="top:4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Reply In-App</div>
+                                    <div class="ct-desc">No switching to email client</div>
+                                </div>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;">
+                                <div style="font-size:0.68rem;color:var(--white-muted);margin-bottom:8px;">Replying to Sarah Chen...</div>
+                                <div class="app-form-input" style="min-height:40px;font-size:0.72rem;color:var(--white-muted);">Type your reply...</div>
+                                <div style="display:flex;justify-content:flex-end;margin-top:8px;">
+                                    <span class="app-btn app-btn-primary" style="font-size:0.6rem;">Send Reply</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     DEEP DIVE: SETTINGS (Module 14)
+     ═══════════════════════════════════════════════════ -->
+<section class="slide" id="dd-settings" style="padding-top:60px;padding-bottom:60px;">
+    <div class="glow-orb glow-red" style="top:30%;right:-8%;"></div>
+    <div class="slide-inner">
+        <span class="pillar-num fade-up">MODULE 14</span>
+        <h2 class="section-title fade-up stagger-1">Settings</h2>
+        <p class="section-subtitle fade-up stagger-2">Profile, billing, plan management, and system configuration.</p>
+
+        <div class="split-view fade-up stagger-3">
+            <div class="split-content">
+                <div class="purpose-block">
+                    <h4>Purpose</h4>
+                    <p>Centralize all account configuration — profile info, billing & plan management, notification preferences, and API connection status — in one clean settings page.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Intention</h4>
+                    <p>Self-service account management. Clients upgrade, downgrade, update billing, and manage notifications without ever contacting support.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Solution</h4>
+                    <p>Tabbed settings interface with profile editing, plan/billing section with usage meters showing lead cap and inbox allocation, notification toggles, API connection health display, and secure password management.</p>
+                </div>
+                <ul class="feature-list">
+                    <li>Profile editing with company info</li>
+                    <li>Plan & billing with usage meters</li>
+                    <li>Notification preference toggles</li>
+                    <li>API connection status indicators</li>
+                    <li>Password change with security</li>
+                    <li>Self-service plan upgrade/downgrade</li>
+                </ul>
+            </div>
+
+            <div class="app-shell">
+                <div class="app-shell-bar">
+                    <div class="app-shell-dot r"></div>
+                    <div class="app-shell-dot y"></div>
+                    <div class="app-shell-dot g"></div>
+                    <span class="app-shell-url">app.speaktofreedom.com/settings</span>
+                </div>
+                <div class="app-shell-body">
+                    <nav class="app-sidebar">
+                        <div class="app-sidebar-brand">S<span>TF</span></div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9632;</span> Dashboard</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9654;</span> Campaigns</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9733;</span> Leads</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9993;</span> Inboxes</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
+                        <div class="app-nav-item active"><span class="nav-icon">&#9881;</span> Settings</div>
+                    </nav>
+                    <div class="app-main">
+                        <div class="app-main-header">
+                            <h3>Settings</h3>
+                        </div>
+
+                        <!-- Settings tabs -->
+                        <div style="display:flex;gap:0;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <div style="padding:8px 16px;font-size:0.72rem;font-weight:600;color:var(--white);border-bottom:2px solid var(--red);">Profile</div>
+                            <div style="padding:8px 16px;font-size:0.72rem;color:var(--white-muted);">Billing & Plan</div>
+                            <div style="padding:8px 16px;font-size:0.72rem;color:var(--white-muted);">Notifications</div>
+                            <div style="padding:8px 16px;font-size:0.72rem;color:var(--white-muted);">Connections</div>
+                        </div>
+
+                        <!-- Profile form -->
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                            <div class="app-form-group">
+                                <label class="app-form-label">Full Name</label>
+                                <div class="app-form-input">Drew Bridewell</div>
+                            </div>
+                            <div class="app-form-group">
+                                <label class="app-form-label">Company</label>
+                                <div class="app-form-input">SpeakToFreedom</div>
+                            </div>
+                            <div class="app-form-group">
+                                <label class="app-form-label">Email</label>
+                                <div class="app-form-input">drew@speaktofreedom.com</div>
+                            </div>
+                            <div class="app-form-group">
+                                <label class="app-form-label">Phone</label>
+                                <div class="app-form-input">+1 (555) 000-0000</div>
+                            </div>
+                        </div>
+
+                        <!-- Plan usage callout -->
+                        <div style="position:relative;margin-top:16px;">
+                            <div class="callout" style="top:4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Usage Meters</div>
+                                    <div class="ct-desc">Real-time cap tracking per plan</div>
+                                </div>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px;">
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                                    <div style="font-size:0.78rem;font-weight:700;">Growth Plan</div>
+                                    <span class="app-btn app-btn-ghost" style="font-size:0.6rem;">Upgrade</span>
+                                </div>
+                                <div style="margin-bottom:10px;">
+                                    <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:var(--white-muted);margin-bottom:4px;"><span>Leads Used</span><span>660 / 2,000</span></div>
+                                    <div class="health-bar"><div class="health-bar-fill green" style="width:33%;"></div></div>
+                                </div>
+                                <div>
+                                    <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:var(--white-muted);margin-bottom:4px;"><span>Inboxes</span><span>10 / 15</span></div>
+                                    <div class="health-bar"><div class="health-bar-fill green" style="width:67%;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- API connections -->
+                        <div style="margin-top:14px;">
+                            <div style="font-size:0.65rem;color:var(--white-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:8px;">API Connections</div>
+                            <div style="display:flex;gap:8px;">
+                                <div style="flex:1;background:rgba(40,200,64,0.06);border:1px solid rgba(40,200,64,0.15);border-radius:8px;padding:10px;text-align:center;">
+                                    <div style="font-size:0.7rem;font-weight:600;color:#28c840;">&#10003; Smartlead</div>
+                                </div>
+                                <div style="flex:1;background:rgba(40,200,64,0.06);border:1px solid rgba(40,200,64,0.15);border-radius:8px;padding:10px;text-align:center;">
+                                    <div style="font-size:0.7rem;font-weight:600;color:#28c840;">&#10003; Zapmail</div>
+                                </div>
+                                <div style="flex:1;background:rgba(40,200,64,0.06);border:1px solid rgba(40,200,64,0.15);border-radius:8px;padding:10px;text-align:center;">
+                                    <div style="font-size:0.7rem;font-weight:600;color:#28c840;">&#10003; GHL CRM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     DEEP DIVE: ADMIN PANEL (Module 15)
+     ═══════════════════════════════════════════════════ -->
+<section class="slide" id="dd-admin" style="padding-top:60px;padding-bottom:60px;">
+    <div class="glow-orb glow-red" style="top:5%;right:15%;"></div>
+    <div class="slide-inner">
+        <span class="pillar-num fade-up">MODULE 15</span>
+        <h2 class="section-title fade-up stagger-1">Admin Panel</h2>
+        <p class="section-subtitle fade-up stagger-2">Agency-level command center. Every client, every metric, full control.</p>
+
+        <div class="split-view fade-up stagger-3">
+            <div class="split-content">
+                <div class="purpose-block">
+                    <h4>Purpose</h4>
+                    <p>Give the STF agency team a cross-client overview of the entire platform — health, performance, provisioning status, and billing — from one admin dashboard.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Intention</h4>
+                    <p>Scale without chaos. As the client base grows from 12 to 50 to 200, the admin panel ensures nothing falls through the cracks — inbox approvals, billing issues, provisioning failures, or client health degradation.</p>
+                </div>
+                <div class="purpose-block">
+                    <h4>Solution</h4>
+                    <p>Cross-client dashboard with platform health metrics, client drill-down for individual account management, inbox approval workflow, provisioning state management, billing reconciliation, and suppression overrides.</p>
+                </div>
+                <ul class="feature-list">
+                    <li>Cross-client health dashboard</li>
+                    <li>Client drill-down with full account view</li>
+                    <li>Inbox approval & provisioning workflow</li>
+                    <li>Billing reconciliation panel</li>
+                    <li>Suppression list management & overrides</li>
+                    <li>System health & job queue monitoring</li>
+                </ul>
+            </div>
+
+            <div class="app-shell">
+                <div class="app-shell-bar">
+                    <div class="app-shell-dot r"></div>
+                    <div class="app-shell-dot y"></div>
+                    <div class="app-shell-dot g"></div>
+                    <span class="app-shell-url">admin.speaktofreedom.com</span>
+                </div>
+                <div class="app-shell-body">
+                    <nav class="app-sidebar">
+                        <div class="app-sidebar-brand">S<span>TF</span> Admin</div>
+                        <div class="app-nav-item active"><span class="nav-icon">&#9632;</span> Overview</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9654;</span> Clients</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9993;</span> Inbox Approvals</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Provisioning</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9733;</span> Billing</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9888;</span> Suppression</div>
+                        <div class="app-nav-item"><span class="nav-icon">&#9881;</span> System</div>
+                    </nav>
+                    <div class="app-main">
+                        <div class="app-main-header">
+                            <h3>Agency Overview</h3>
+                            <span style="font-size:0.65rem;color:var(--white-muted);">Last updated: 2 min ago</span>
+                        </div>
+
+                        <!-- Callout: platform health -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:-4px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Platform Health</div>
+                                    <div class="ct-desc">All clients, all systems, one view</div>
+                                </div>
+                            </div>
+                            <div class="app-admin-grid" style="margin-bottom:14px;">
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val" style="font-size:1.3rem;">47</div>
+                                    <div class="app-stat-label">Active Clients</div>
+                                </div>
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val" style="font-size:1.3rem;">412</div>
+                                    <div class="app-stat-label">Total Inboxes</div>
+                                </div>
+                                <div class="app-stat-card highlight">
+                                    <div class="app-stat-val" style="font-size:1.3rem;">98.2%</div>
+                                    <div class="app-stat-label">System Uptime</div>
+                                </div>
+                            </div>
+
+                            <div class="app-admin-grid" style="margin-bottom:14px;">
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val" style="font-size:1.3rem;">189</div>
+                                    <div class="app-stat-label">Active Campaigns</div>
+                                </div>
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val" style="font-size:1.3rem;">$46.9K</div>
+                                    <div class="app-stat-label">MRR</div>
+                                </div>
+                                <div class="app-stat-card">
+                                    <div class="app-stat-val" style="font-size:1.3rem;color:#febc2e;">3</div>
+                                    <div class="app-stat-label">Pending Approvals</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Callout: client list -->
+                        <div style="position:relative;">
+                            <div class="callout" style="top:2px;right:8px;">
+                                <div class="callout-dot"></div>
+                                <div class="callout-tip">
+                                    <div class="ct-title">Client Drill-Down</div>
+                                    <div class="ct-desc">Click any client for full account view</div>
+                                </div>
+                            </div>
+                            <div style="font-size:0.65rem;color:var(--white-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:8px;">Recent Clients</div>
+                            <div class="app-client-row">
+                                <div class="app-client-avatar">AC</div>
+                                <div style="flex:1;">
+                                    <div style="font-size:0.78rem;font-weight:600;">Acme Corp</div>
+                                    <div style="font-size:0.62rem;color:var(--white-muted);">10 inboxes &middot; 3 campaigns</div>
+                                </div>
+                                <span class="status status-healthy">Healthy</span>
+                            </div>
+                            <div class="app-client-row">
+                                <div class="app-client-avatar">GS</div>
+                                <div style="flex:1;">
+                                    <div style="font-size:0.78rem;font-weight:600;">GrowthStack</div>
+                                    <div style="font-size:0.62rem;color:var(--white-muted);">15 inboxes &middot; 5 campaigns</div>
+                                </div>
+                                <span class="status status-healthy">Healthy</span>
+                            </div>
+                            <div class="app-client-row">
+                                <div class="app-client-avatar">NL</div>
+                                <div style="flex:1;">
+                                    <div style="font-size:0.78rem;font-weight:600;">NextLevel Agency</div>
+                                    <div style="font-size:0.62rem;color:var(--white-muted);">8 inboxes &middot; 2 campaigns</div>
+                                </div>
+                                <span class="status status-warning">1 Warning</span>
+                            </div>
+                            <div class="app-client-row">
+                                <div class="app-client-avatar">SV</div>
+                                <div style="flex:1;">
+                                    <div style="font-size:0.78rem;font-weight:600;">ScaleVenture</div>
+                                    <div style="font-size:0.62rem;color:var(--white-muted);">12 inboxes &middot; 4 campaigns</div>
+                                </div>
+                                <span class="status status-healthy">Healthy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
      SLIDE 5 — BUILD TIMELINE
      ═══════════════════════════════════════════════════ -->
 <section class="slide" id="s5">
     <div class="glow-orb glow-red" style="top:30%;right:-10%;"></div>
     <div class="slide-inner">
         <div class="label fade-up">Build Timeline</div>
-        <h2 class="section-title fade-up stagger-1">7–8 weeks.<br><span style="color:var(--red)">Five phases.</span></h2>
+        <h2 class="section-title fade-up stagger-1">12 weeks.<br><span style="color:var(--red)">Five phases.</span></h2>
         <p class="section-subtitle fade-up stagger-2">Rapid, phased execution from validation spike to production launch.</p>
 
         <div class="timeline fade-up stagger-3">
@@ -1378,55 +3114,6 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════
-     SLIDE 9 — 10X VISION
-     ═══════════════════════════════════════════════════ -->
-<section class="slide" id="s9">
-    <div class="slide-inner">
-        <div class="label fade-up">The 10x Vision</div>
-        <h2 class="section-title fade-up stagger-1">From tool stack<br><span style="color:var(--red)">→ platform.</span></h2>
-        <p class="section-subtitle fade-up stagger-2">Phase 2 features that transform SpeakToFreedom from a bundled tool into a defensible product.</p>
-
-        <div class="vision-list fade-up stagger-3">
-            <div class="vision-item">
-                <div class="vision-icon">🧠</div>
-                <div>
-                    <h4>AI Reply Categorization</h4>
-                    <p>Auto-classify replies as interested, objection, not now, unsubscribe — route each to tailored workflows.</p>
-                </div>
-            </div>
-            <div class="vision-item">
-                <div class="vision-icon">✍️</div>
-                <div>
-                    <h4>AI Sequence Generation</h4>
-                    <p>Generate high-converting email sequences from a brief. Personalize at scale using lead data enrichment.</p>
-                </div>
-            </div>
-            <div class="vision-item">
-                <div class="vision-icon">📊</div>
-                <div>
-                    <h4>Deliverability Scoring</h4>
-                    <p>Real-time sender reputation scoring per inbox, per domain. Predictive alerts before metrics degrade.</p>
-                </div>
-            </div>
-            <div class="vision-item">
-                <div class="vision-icon">⚡</div>
-                <div>
-                    <h4>Campaign Optimization Engine</h4>
-                    <p>Auto-A/B test subject lines, send times, sequences. Continuously optimize for reply rate without manual intervention.</p>
-                </div>
-            </div>
-            <div class="vision-item">
-                <div class="vision-icon">🔒</div>
-                <div>
-                    <h4>Smart Suppression Intelligence</h4>
-                    <p>Cross-client suppression, industry-level do-not-contact lists, compliance automation.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════
      SLIDE 10 — CLOSING
      ═══════════════════════════════════════════════════ -->
 <section class="slide" id="s10" style="text-align:center;">
@@ -1438,7 +3125,7 @@
         </h2>
         <div class="red-line fade-up stagger-2" style="margin:24px auto;"></div>
         <p class="section-subtitle fade-up stagger-3" style="text-align:center;max-width:600px;">
-            18 modules. 4 integrations. 7 weeks.<br>One unified platform that eliminates every manual step between subscription and revenue.
+            18 modules. 4 integrations. 12 weeks.<br>One unified platform that eliminates every manual step between subscription and revenue.
         </p>
         <div class="stat-row fade-up stagger-4" style="justify-content:center;margin-top:60px;">
             <div class="stat-item" style="text-align:center;">
@@ -1462,17 +3149,50 @@
      SCRIPTS
      ═══════════════════════════════════════════════════ -->
 <script>
-    // Build nav dots
+    // ─── Setup ───
     const slides = document.querySelectorAll('.slide');
     const nav = document.getElementById('slideNav');
+    const totalSlides = slides.length;
+
+    // Build nav dots + inject page numbers into each slide
     slides.forEach((s, i) => {
+        // Nav dot
         const a = document.createElement('a');
         a.href = '#' + s.id;
         a.dataset.index = i;
+        a.title = s.id;
         nav.appendChild(a);
+
+        // Page number element
+        const pageNum = document.createElement('div');
+        pageNum.className = 'page-num';
+        pageNum.innerHTML = `
+            <span class="current">${String(i + 1).padStart(2, '0')}</span>
+            <span class="divider"></span>
+            <span class="total">${String(totalSlides).padStart(2, '0')}</span>
+            <span class="page-link" data-id="${s.id}" title="Copy link to this slide">#${s.id}</span>
+        `;
+        s.appendChild(pageNum);
     });
 
-    // Reveal animations — observe each slide section, then reveal its children
+    // Click page-link to copy deep link
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('page-link')) {
+            const id = e.target.dataset.id;
+            const url = location.origin + location.pathname + '#' + id;
+            navigator.clipboard.writeText(url).then(() => {
+                const orig = e.target.textContent;
+                e.target.textContent = 'copied!';
+                e.target.style.color = '#28c840';
+                setTimeout(() => {
+                    e.target.textContent = orig;
+                    e.target.style.color = '';
+                }, 1500);
+            });
+        }
+    });
+
+    // ─── Reveal animations ───
     const revealSlide = (slideEl) => {
         slideEl.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
     };
@@ -1481,23 +3201,16 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 revealSlide(entry.target);
-                // Also update nav dots
-                const id = entry.target.id;
-                document.querySelectorAll('.slide-nav a').forEach(a => {
-                    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-                });
             }
         });
     }, { threshold: 0.1 });
 
     slides.forEach(s => slideObserver.observe(s));
-
-    // Force first slide visible immediately
     revealSlide(document.getElementById('s1'));
 
-    // Fallback: also use scroll listener for aggressive reveal
+    // Fallback scroll reveal
     const revealOnScroll = () => {
-        document.querySelectorAll('.slide').forEach(slide => {
+        slides.forEach(slide => {
             const rect = slide.getBoundingClientRect();
             if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
                 revealSlide(slide);
@@ -1505,28 +3218,18 @@
         });
     };
     window.addEventListener('scroll', revealOnScroll, { passive: true });
-    revealOnScroll(); // run once on load
-
-    // Active dot tracking (kept as backup)
-    const dotObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.id;
-                document.querySelectorAll('.slide-nav a').forEach(a => {
-                    a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-                });
-            }
-        });
-    }, { threshold: 0.3 });
-
-    slides.forEach(s => dotObserver.observe(s));
+    revealOnScroll();
 
     // ─── Robust slide tracking + keyboard/arrow nav ───
     let currentSlideIndex = 0;
-    const allSlides = [...document.querySelectorAll('.slide')];
+    const allSlides = [...slides];
     const allDots = [...document.querySelectorAll('.slide-nav a')];
 
-    // Track which slide is most visible
+    function updateHash(idx) {
+        const id = allSlides[idx].id;
+        history.replaceState(null, '', '#' + id);
+    }
+
     const trackObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
@@ -1534,6 +3237,7 @@
                 if (idx !== -1) {
                     currentSlideIndex = idx;
                     allDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+                    updateHash(idx);
                 }
             }
         });
@@ -1541,14 +3245,15 @@
 
     allSlides.forEach(s => trackObserver.observe(s));
 
-    function goToSlide(index) {
+    function goToSlide(index, smooth = true) {
         const target = Math.max(0, Math.min(index, allSlides.length - 1));
-        allSlides[target].scrollIntoView({ behavior: 'smooth' });
+        allSlides[target].scrollIntoView({ behavior: smooth ? 'smooth' : 'auto' });
         currentSlideIndex = target;
         allDots.forEach((d, i) => d.classList.toggle('active', i === target));
+        updateHash(target);
     }
 
-    // Keyboard: ArrowDown / ArrowRight / Space = next, ArrowUp / ArrowLeft = prev
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
             e.preventDefault();
@@ -1558,12 +3263,11 @@
             e.preventDefault();
             goToSlide(currentSlideIndex - 1);
         }
-        // Home = first slide, End = last slide
         if (e.key === 'Home') { e.preventDefault(); goToSlide(0); }
         if (e.key === 'End') { e.preventDefault(); goToSlide(allSlides.length - 1); }
     });
 
-    // Nav dots: click to jump
+    // Nav dots click
     allDots.forEach((dot, i) => {
         dot.addEventListener('click', (e) => {
             e.preventDefault();
@@ -1571,8 +3275,21 @@
         });
     });
 
-    // Initialize first dot as active
-    if (allDots[0]) allDots[0].classList.add('active');
+    // ─── Deep link: jump to slide on load ───
+    function handleHash() {
+        const hash = location.hash.replace('#', '');
+        if (!hash) return;
+        const idx = allSlides.findIndex(s => s.id === hash);
+        if (idx !== -1) {
+            goToSlide(idx, false);
+            revealSlide(allSlides[idx]);
+        }
+    }
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+
+    // Initialize first dot as active if no hash
+    if (!location.hash && allDots[0]) allDots[0].classList.add('active');
 </script>
 
 </body>

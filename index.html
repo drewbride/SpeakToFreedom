@@ -40,13 +40,15 @@
         /* ─── SLIDE SYSTEM ─── */
         .slide {
             min-height: 100vh;
+            height: 100vh;
+            max-height: 100vh;
             width: 100%;
             scroll-snap-align: start;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 60px 40px;
+            padding: 40px 40px 50px;
             position: relative;
             overflow: hidden;
         }
@@ -85,17 +87,17 @@
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 900;
             line-height: 1.1;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .section-subtitle {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
             color: var(--white-dim);
             font-weight: 300;
-            line-height: 1.7;
+            line-height: 1.6;
             max-width: 650px;
         }
 
@@ -249,12 +251,12 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         .pain-item {
             background: var(--black-card);
-            padding: 40px 36px;
+            padding: 20px 24px;
             position: relative;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -267,10 +269,10 @@
 
         .pain-item .num {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 900;
             color: rgba(196,30,58,0.12);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             line-height: 1;
         }
 
@@ -293,9 +295,9 @@
             text-transform: uppercase;
             color: var(--red);
             font-weight: 700;
-            margin-bottom: 16px;
-            margin-top: 40px;
-            padding-bottom: 10px;
+            margin-bottom: 10px;
+            margin-top: 24px;
+            padding-bottom: 8px;
             border-bottom: 1px solid rgba(196,30,58,0.2);
         }
 
@@ -309,7 +311,7 @@
             background: var(--black-card);
             border: 1px solid rgba(255,255,255,0.05);
             border-radius: 12px;
-            padding: 24px 22px;
+            padding: 16px 18px;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
@@ -330,22 +332,22 @@
         }
 
         .module-card h4 {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            margin: 6px 0 8px;
+            margin: 4px 0 4px;
         }
 
         .module-card p {
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             color: var(--white-muted);
-            line-height: 1.55;
+            line-height: 1.45;
             flex: 1;
         }
 
         /* ─── SLIDE: TIMELINE ─── */
         .timeline {
             position: relative;
-            margin-top: 50px;
+            margin-top: 24px;
         }
 
         .timeline::before {
@@ -359,8 +361,8 @@
         }
 
         .tl-item {
-            padding-left: 50px;
-            padding-bottom: 50px;
+            padding-left: 40px;
+            padding-bottom: 28px;
             position: relative;
         }
 
@@ -388,9 +390,9 @@
 
         .tl-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .tl-duration {
@@ -405,9 +407,9 @@
         }
 
         .tl-desc {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: var(--white-muted);
-            line-height: 1.7;
+            line-height: 1.5;
             max-width: 600px;
         }
 
@@ -478,7 +480,7 @@
             background: var(--black-card);
             border: 1px solid rgba(255,255,255,0.06);
             border-radius: 20px;
-            padding: 40px 32px;
+            padding: 28px 24px;
             text-align: center;
             transition: all 0.4s ease;
             position: relative;
@@ -858,34 +860,34 @@
         .split-view {
             display: grid;
             grid-template-columns: 1fr 1.3fr;
-            gap: 48px;
+            gap: 32px;
             align-items: start;
-            margin-top: 32px;
+            margin-top: 16px;
         }
 
-        .split-content { display: flex; flex-direction: column; gap: 20px; }
+        .split-content { display: flex; flex-direction: column; gap: 10px; }
 
         .split-content .purpose-block {
             background: var(--black-card);
             border: 1px solid rgba(255,255,255,0.06);
             border-left: 3px solid var(--red);
             border-radius: 0 12px 12px 0;
-            padding: 24px 28px;
+            padding: 14px 20px;
         }
 
         .split-content .purpose-block h4 {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--red);
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .split-content .purpose-block p {
-            font-size: 0.88rem;
+            font-size: 0.78rem;
             color: var(--white-dim);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .split-content .feature-list {
@@ -893,14 +895,14 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 3px;
         }
 
         .split-content .feature-list li {
-            font-size: 0.82rem;
+            font-size: 0.72rem;
             color: var(--white-dim);
-            padding: 8px 14px;
-            border-radius: 8px;
+            padding: 5px 12px;
+            border-radius: 6px;
             background: rgba(255,255,255,0.02);
             border: 1px solid rgba(255,255,255,0.04);
             display: flex;
@@ -961,8 +963,10 @@
 
         .app-shell-body {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            min-height: 420px;
+            grid-template-columns: 170px 1fr;
+            min-height: 300px;
+            max-height: 50vh;
+            overflow: hidden;
         }
 
         .app-sidebar {
@@ -1013,8 +1017,27 @@
 
         .app-nav-item.active .nav-icon { opacity: 1; }
 
+        .app-crm-link {
+            margin-top: auto;
+            padding: 10px 16px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--red-glow);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .app-crm-link:hover {
+            background: rgba(196,30,58,0.08);
+            color: var(--white);
+        }
+
         .app-main {
-            padding: 24px;
+            padding: 16px;
             position: relative;
             overflow: hidden;
         }
@@ -1477,7 +1500,7 @@
         /* ─── PAGE NUMBER ─── */
         .page-num {
             position: absolute;
-            bottom: 24px;
+            bottom: 16px;
             right: 40px;
             font-size: 0.65rem;
             font-weight: 600;
@@ -1546,6 +1569,12 @@
             .app-shell-body { grid-template-columns: 1fr; }
             .app-sidebar { display: none; }
             .app-stat-row { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ─── DENSE SLIDE SCALING ─── */
+        .slide-dense .slide-inner {
+            transform: scale(0.88);
+            transform-origin: top center;
         }
 
         /* ─── ANIMATIONS ─── */
@@ -1640,13 +1669,13 @@
     <div class="slide-inner">
         <div class="label fade-up">The Solution</div>
         <h2 class="section-title fade-up stagger-1">One ecosystem.<br><span style="color:var(--red)">Zero friction.</span></h2>
-        <p class="section-subtitle wide fade-up stagger-2">SpeakToFreedom unifies GoHighLevel CRM, Smartlead outreach, Zapmail inbox infrastructure, and STFLeadlist into a single automated platform. Two logins. One subscription. Full API orchestration.</p>
+        <p class="section-subtitle wide fade-up stagger-2">SpeakToFreedom unifies GoHighLevel CRM, Smartlead outreach, Zapmail inbox infrastructure, and STFLeadlist into a single automated platform. Two logins — one unified landing page. One bundled subscription with optional outreach add-on. Full API orchestration.</p>
         <div class="red-line fade-up stagger-3"></div>
 
         <div class="arch-flow fade-up stagger-4">
             <div class="arch-node">
                 <h4>Client Subscribes</h4>
-                <p>GHL SaaS plan</p>
+                <p>GHL SaaS plan + outreach</p>
             </div>
             <span class="arch-arrow">&#10132;</span>
             <div class="arch-node">
@@ -1694,7 +1723,7 @@
 <!-- ═══════════════════════════════════════════════════
      SLIDE 4 — THE ECOSYSTEM (18 Modules)
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="s4" style="padding-top:80px;padding-bottom:80px;">
+<section class="slide slide-dense" id="s4">
     <div class="slide-inner">
         <div class="label fade-up">The Ecosystem</div>
         <h2 class="section-title fade-up stagger-1">18 modules.<br><span style="color:var(--red)">One platform.</span></h2>
@@ -1705,10 +1734,10 @@
             <div class="module-card"><span class="mod-num">01</span><h4>Automated Provisioning</h4><p>Client subscribes → auto-creates Smartlead account, Zapmail workspace, 5 domains, 10 inboxes, warmup started.</p></div>
             <div class="module-card"><span class="mod-num">02</span><h4>Lead Sync Engine</h4><p>Browse STFLeadlist, filter, select, push to campaigns. 2,000 leads/month cap enforced. No CSV exports.</p></div>
             <div class="module-card"><span class="mod-num">03</span><h4>Campaign Orchestration</h4><p>Create sequences, assign inboxes for rotation, attach leads, set schedules, launch. Full lifecycle management.</p></div>
-            <div class="module-card"><span class="mod-num">04</span><h4>Reply Handler + CRM Sync</h4><p>Reply → GHL contact created/updated with tags → lead removed from campaign → suppression registry.</p></div>
+            <div class="module-card"><span class="mod-num">04</span><h4>Reply Handler + CRM Sync</h4><p>Reply → GHL contact created/updated with tags → auto-removed from outreach → suppression flagged to prevent re-adds.</p></div>
             <div class="module-card"><span class="mod-num">05</span><h4>Inbox Health Monitor</h4><p>Continuous polling. Breach thresholds → auto-remove from campaigns, return to warmup, notify client.</p></div>
-            <div class="module-card"><span class="mod-num">06</span><h4>Billing Entitlement</h4><p>Downgrade/cancel → pause campaigns, disable sending. CRM stays active. Re-enable restores everything.</p></div>
-            <div class="module-card"><span class="mod-num">07</span><h4>Suppression Registry</h4><p>Central safety layer. Replied/bounced/unsubscribed leads blocked from all future campaigns automatically.</p></div>
+            <div class="module-card"><span class="mod-num">06</span><h4>Billing Entitlement</h4><p>Outreach add-on toggle — cancel outreach, keep CRM. Downgrade → pause campaigns, disable sending. Re-enable restores everything.</p></div>
+            <div class="module-card"><span class="mod-num">07</span><h4>Suppression Registry</h4><p>Central safety layer. Replied/bounced/unsubscribed leads auto-blocked. Manual re-sequence override available — never automatic.</p></div>
         </div>
 
         <div class="module-section-label fade-up">Client Portal</div>
@@ -1726,7 +1755,7 @@
         <div class="module-grid fade-up">
             <div class="module-card"><span class="mod-num">15</span><h4>Agency Admin Panel</h4><p>Cross-client dashboard, platform health, client drill-down, inbox approval, billing reconciliation.</p></div>
             <div class="module-card"><span class="mod-num">16</span><h4>Backend + Database</h4><p>Node.js, Postgres, BullMQ, JWT auth, rate limiting, audit logging, multi-tenant isolation.</p></div>
-            <div class="module-card"><span class="mod-num">17</span><h4>Frontend App</h4><p>React/Next.js, Tailwind, dark theme, sidebar nav, role-based visibility, responsive, notifications.</p></div>
+            <div class="module-card"><span class="mod-num">17</span><h4>Frontend App</h4><p>Unified login hub (choose CRM or Outreach), React/Next.js, dark theme, sidebar with "Open CRM" link, role-based visibility, responsive.</p></div>
             <div class="module-card"><span class="mod-num">18</span><h4>Launch & QA</h4><p>E2E flow testing: purchase → provision → leads → campaign → reply → GHL. UAT with STF team.</p></div>
         </div>
     </div>
@@ -1735,7 +1764,7 @@
 <!-- ═══════════════════════════════════════════════════
      DEEP DIVE: DASHBOARD (Module 08)
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="dd-dashboard" style="padding-top:60px;padding-bottom:60px;">
+<section class="slide" id="dd-dashboard">
     <div class="glow-orb glow-red" style="top:10%;right:-8%;"></div>
     <div class="slide-inner">
         <span class="pillar-num fade-up">MODULE 08</span>
@@ -1783,6 +1812,7 @@
                         <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                        <div class="app-crm-link">&#10132; Open CRM</div>
                     </nav>
                     <div class="app-main">
                         <div class="app-main-header">
@@ -1877,7 +1907,7 @@
 <!-- ═══════════════════════════════════════════════════
      DEEP DIVE: CAMPAIGN MANAGER (Module 09)
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="dd-campaigns" style="padding-top:60px;padding-bottom:60px;">
+<section class="slide" id="dd-campaigns">
     <div class="glow-orb glow-red" style="bottom:-10%;left:10%;"></div>
     <div class="slide-inner">
         <span class="pillar-num fade-up">MODULE 09</span>
@@ -1925,6 +1955,7 @@
                         <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                        <div class="app-crm-link">&#10132; Open CRM</div>
                     </nav>
                     <div class="app-main">
                         <!-- Callout: wizard -->
@@ -2002,7 +2033,7 @@
 <!-- ═══════════════════════════════════════════════════
      DEEP DIVE: LEAD BROWSER (Module 10)
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="dd-leads" style="padding-top:60px;padding-bottom:60px;">
+<section class="slide" id="dd-leads">
     <div class="glow-orb glow-red" style="top:20%;left:-5%;"></div>
     <div class="slide-inner">
         <span class="pillar-num fade-up">MODULE 10</span>
@@ -2021,13 +2052,15 @@
                 </div>
                 <div class="purpose-block">
                     <h4>Solution</h4>
-                    <p>Category-based browsing with location/date search, multi-select with bulk actions, and one-click push-to-campaign. Usage tracked against the monthly lead cap (2,000/mo).</p>
+                    <p>Direct API integration with STFLeadlist — category browsing, location/date search, saved lead lists, multi-select with bulk push-to-campaign, and lead status tracking. No CSV exports. Usage tracked against the 2,000/mo cap.</p>
                 </div>
                 <ul class="feature-list">
                     <li>STFLeadlist integration with category cards</li>
                     <li>Location + date range search filters</li>
                     <li>Multi-select with shift-click support</li>
                     <li>Push-to-campaign in one click</li>
+                    <li>Saved lead lists for reuse across campaigns</li>
+                    <li>Lead statuses: new, contacted, replied, suppressed</li>
                     <li>Usage meter: leads used vs. plan limit</li>
                     <li>Suppression check before push</li>
                 </ul>
@@ -2050,6 +2083,7 @@
                         <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                        <div class="app-crm-link">&#10132; Open CRM</div>
                     </nav>
                     <div class="app-main">
                         <div class="app-main-header">
@@ -2123,7 +2157,7 @@
 <!-- ═══════════════════════════════════════════════════
      DEEP DIVE: INBOX MANAGER (Module 11)
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="dd-inboxes" style="padding-top:60px;padding-bottom:60px;">
+<section class="slide" id="dd-inboxes">
     <div class="glow-orb glow-red" style="bottom:5%;right:10%;"></div>
     <div class="slide-inner">
         <span class="pillar-num fade-up">MODULE 11</span>
@@ -2142,15 +2176,16 @@
                 </div>
                 <div class="purpose-block">
                     <h4>Solution</h4>
-                    <p>Health percentage per inbox, warmup progress tracking, DNS status verification, 3-step "Add Mailbox" wizard via Zapmail API, and automatic campaign removal when health drops below threshold.</p>
+                    <p>Health percentage per inbox, warmup progress tracking, DNS status verification, 3-step "Add Mailbox" wizard via Zapmail API with domain selection, capped allocation with admin approval for expansion, and automatic campaign removal when health drops below threshold.</p>
                 </div>
                 <ul class="feature-list">
                     <li>Health % with color-coded indicators</li>
                     <li>Warmup progress bars per inbox</li>
                     <li>Daily send limits and DNS status</li>
-                    <li>3-step "Add Mailbox" wizard via Zapmail</li>
+                    <li>3-step "Add Mailbox" wizard with domain selection</li>
+                    <li>Capped allocation — admin approval to expand</li>
                     <li>Auto-remove unhealthy inboxes from rotation</li>
-                    <li>Return-to-warmup automation</li>
+                    <li>Return-to-warmup automation + client notification</li>
                 </ul>
             </div>
 
@@ -2171,6 +2206,7 @@
                         <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                        <div class="app-crm-link">&#10132; Open CRM</div>
                     </nav>
                     <div class="app-main">
                         <div class="app-main-header">
@@ -2256,7 +2292,7 @@
 <!-- ═══════════════════════════════════════════════════
      DEEP DIVE: ANALYTICS (Module 12)
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="dd-analytics" style="padding-top:60px;padding-bottom:60px;">
+<section class="slide" id="dd-analytics">
     <div class="glow-orb glow-red" style="top:15%;left:5%;"></div>
     <div class="slide-inner">
         <span class="pillar-num fade-up">MODULE 12</span>
@@ -2304,6 +2340,7 @@
                         <div class="app-nav-item active"><span class="nav-icon">&#9636;</span> Analytics</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9776;</span> Inbox</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                        <div class="app-crm-link">&#10132; Open CRM</div>
                     </nav>
                     <div class="app-main">
                         <div class="app-main-header">
@@ -2386,7 +2423,7 @@
 <!-- ═══════════════════════════════════════════════════
      DEEP DIVE: UNIFIED INBOX (Module 13)
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="dd-inbox" style="padding-top:60px;padding-bottom:60px;">
+<section class="slide" id="dd-inbox">
     <div class="glow-orb glow-red" style="bottom:-8%;left:-5%;"></div>
     <div class="slide-inner">
         <span class="pillar-num fade-up">MODULE 13</span>
@@ -2434,6 +2471,7 @@
                         <div class="app-nav-item"><span class="nav-icon">&#9636;</span> Analytics</div>
                         <div class="app-nav-item active"><span class="nav-icon">&#9776;</span> Inbox</div>
                         <div class="app-nav-item"><span class="nav-icon">&#9881;</span> Settings</div>
+                        <div class="app-crm-link">&#10132; Open CRM</div>
                     </nav>
                     <div class="app-main">
                         <div class="app-main-header">
@@ -2518,7 +2556,7 @@
 <!-- ═══════════════════════════════════════════════════
      DEEP DIVE: SETTINGS (Module 14)
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="dd-settings" style="padding-top:60px;padding-bottom:60px;">
+<section class="slide" id="dd-settings">
     <div class="glow-orb glow-red" style="top:30%;right:-8%;"></div>
     <div class="slide-inner">
         <span class="pillar-num fade-up">MODULE 14</span>
@@ -2537,7 +2575,7 @@
                 </div>
                 <div class="purpose-block">
                     <h4>Solution</h4>
-                    <p>Tabbed settings interface with profile editing, plan/billing section with usage meters showing lead cap and inbox allocation, notification toggles, API connection health display, and secure password management.</p>
+                    <p>Tabbed settings interface with profile editing, plan/billing section with usage meters and outreach add-on toggle (keep CRM, pause outreach independently), notification toggles, API connection health display, and secure password management.</p>
                 </div>
                 <ul class="feature-list">
                     <li>Profile editing with company info</li>
@@ -2545,6 +2583,7 @@
                     <li>Notification preference toggles</li>
                     <li>API connection status indicators</li>
                     <li>Password change with security</li>
+                    <li>Outreach add-on toggle (CRM stays active)</li>
                     <li>Self-service plan upgrade/downgrade</li>
                 </ul>
             </div>
@@ -2650,7 +2689,7 @@
 <!-- ═══════════════════════════════════════════════════
      DEEP DIVE: ADMIN PANEL (Module 15)
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="dd-admin" style="padding-top:60px;padding-bottom:60px;">
+<section class="slide" id="dd-admin">
     <div class="glow-orb glow-red" style="top:5%;right:15%;"></div>
     <div class="slide-inner">
         <span class="pillar-num fade-up">MODULE 15</span>
@@ -2798,7 +2837,7 @@
 <!-- ═══════════════════════════════════════════════════
      SLIDE 5 — BUILD TIMELINE
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="s5">
+<section class="slide slide-dense" id="s5">
     <div class="glow-orb glow-red" style="top:30%;right:-10%;"></div>
     <div class="slide-inner">
         <div class="label fade-up">Build Timeline</div>
@@ -2811,7 +2850,7 @@
                 <div class="tl-phase">Phase 0</div>
                 <div class="tl-title">Validation Spike</div>
                 <span class="tl-duration">1 Week</span>
-                <p class="tl-desc">Confirm Smartlead agency API paths, Zapmail wallet automation, GHL SaaS webhooks. Lock auth strategy and DB schema. Identify blockers before a single line of production code.</p>
+                <p class="tl-desc">Evaluate Smartlead vs Instantly (API strength, webhooks, agency management, scalability). Confirm API paths, Zapmail wallet automation, GHL SaaS webhooks. Lock auth strategy and DB schema. Identify blockers before production code.</p>
             </div>
             <div class="tl-item">
                 <div class="tl-dot"></div>
@@ -2912,7 +2951,7 @@
 <!-- ═══════════════════════════════════════════════════
      SLIDE 7 — OPERATING COSTS + CLIENT PRICING
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="s7">
+<section class="slide slide-dense" id="s7">
     <div class="slide-inner">
         <div class="label fade-up">Pricing Model</div>
         <h2 class="section-title fade-up stagger-1">Client tiers.<br><span style="color:var(--red)">Recurring revenue.</span></h2>
@@ -2995,7 +3034,7 @@
 <!-- ═══════════════════════════════════════════════════
      SLIDE 7B — CLIENT VALUE: SAVINGS + REVENUE
      ═══════════════════════════════════════════════════ -->
-<section class="slide" id="s7b" style="padding-top:80px;padding-bottom:80px;">
+<section class="slide slide-dense" id="s7b">
     <div class="glow-orb glow-red" style="top:5%;left:-5%;"></div>
     <div class="slide-inner">
         <div class="label fade-up">Client Value</div>
